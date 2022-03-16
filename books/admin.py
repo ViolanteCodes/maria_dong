@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import Book, BuyLink, Blurb, Edition, Publisher, Territory
 
-class BuyLinkInline(admin.StackedInline):
+class BuyLinkInline(admin.TabularInline):
     model = BuyLink
     extra = 0
 
