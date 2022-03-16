@@ -36,6 +36,31 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # django sass
+    'django_sass',
+
+    # tailwind
+    'tailwind',
+    'theme',
+    'django_browser_reload',
+
+
+    # wagtail
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail.core',
+
+    'modelcluster',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -46,6 +71,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware", #tailwind
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware', #wagtail
 ]
 
 ROOT_URLCONF = 'authorsite.urls'
@@ -122,6 +149,20 @@ if DEBUG == True:
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static')
     ]
+
+# Wagtail Options
+WAGTAIL_SITE_NAME = 'Maria Dong, Author'
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.search.backends.database',
+    }
+}
+
+# Tailwind options
+TAILWIND_APP_NAME = 'theme'
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
