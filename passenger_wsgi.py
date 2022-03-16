@@ -1,0 +1,1 @@
+from authorsite.wsgi import application
