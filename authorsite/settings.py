@@ -45,22 +45,11 @@ INSTALLED_APPS = [
     'theme',
     'django_browser_reload',
 
+    # ckeditor
+    'ckeditor',
 
-    # wagtail
-    'wagtail.contrib.forms',
-    'wagtail.contrib.redirects',
-    'wagtail.embeds',
-    'wagtail.sites',
-    'wagtail.users',
-    'wagtail.snippets',
-    'wagtail.documents',
-    'wagtail.images',
-    'wagtail.search',
-    'wagtail.admin',
-    'wagtail.core',
-
-    'modelcluster',
-    'taggit',
+    # apps
+    'books',
 ]
 
 MIDDLEWARE = [
@@ -72,7 +61,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django_browser_reload.middleware.BrowserReloadMiddleware", #tailwind
-    'wagtail.contrib.redirects.middleware.RedirectMiddleware', #wagtail
 ]
 
 ROOT_URLCONF = 'authorsite.urls'
@@ -145,18 +133,11 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if DEBUG == True:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'root')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static')
+        os.path.join(BASE_DIR, 'sass'),
+        ("images", os.path.join(BASE_DIR, 'images')),
     ]
-
-# Wagtail Options
-WAGTAIL_SITE_NAME = 'Maria Dong, Author'
-WAGTAILSEARCH_BACKENDS = {
-    'default': {
-        'BACKEND': 'wagtail.search.backends.database',
-    }
-}
 
 # Tailwind options
 TAILWIND_APP_NAME = 'theme'

@@ -1,0 +1,1 @@
+run collectstatic after adding images

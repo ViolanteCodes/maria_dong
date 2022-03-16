@@ -16,15 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-# Wagtail
-from wagtail.admin import urls as wagtailadmin_urls
-from wagtail.core import urls as wagtail_urls
-from wagtail.documents import urls as wagtaildocs_urls
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cms/', include(wagtailadmin_urls)),
-    path('documents/', include(wagtaildocs_urls)),
-    path('pages/', include(wagtail_urls)),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
