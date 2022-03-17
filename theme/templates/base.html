@@ -10,7 +10,11 @@
 	</head>
 
 	<body class="bg-black text-slate-100 font-serif leading-normal tracking-normal">
-		<div class="lg:container mx-auto">
+		<div class="lg:container mx-auto bg-black h-screen">
+		{% block navbar %}
+			{% include 'partials/_navbar.html' %}
+		{% endblock navbar %}
+
 		{% block body %}
 		{% endblock body %}
 		</div>
