@@ -5,4 +5,8 @@
 @font-face {
     font-family: "Shadows";
     src: url('/static/fonts/ShadowsIntoLight-Regular.ttf');
-  }
+}
+@font-face {
+    font-family: "Rock Salt";
+    src: url('/static/fonts/RockSalt-Regular.ttf');
+}

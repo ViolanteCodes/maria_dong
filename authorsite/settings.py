@@ -136,8 +136,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if DEBUG == True:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'assets'),
-        ("images", os.path.join(BASE_DIR, 'images')),
+        os.path.join(BASE_DIR, 'assets'), 
     ]
 
 # Tailwind options

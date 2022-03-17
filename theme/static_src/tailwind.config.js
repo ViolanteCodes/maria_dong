@@ -44,8 +44,9 @@ module.exports = {
     ],
     theme: {
         extend: {
-            fontFamily: {
+            fontFamily:     {
                 shadows: ["Shadows", "sans-serif"],
+                rocksalt: ["Rock Salt", "sans-serif"],
               },
         },
         screens: {
