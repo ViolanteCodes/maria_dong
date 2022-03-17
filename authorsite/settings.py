@@ -50,7 +50,7 @@ INSTALLED_APPS = [
 
     # apps
     'books',
-    'landing',
+    'layout',
 ]
 
 MIDDLEWARE = [
