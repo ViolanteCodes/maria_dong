@@ -43,7 +43,11 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                shadows: ["Shadows", "sans-serif"],
+              },
+        },
         screens: {
             'sm': '640px',
             // => @media (min-width: 640px) { ... }
