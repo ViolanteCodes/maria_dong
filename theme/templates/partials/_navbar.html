@@ -1,8 +1,8 @@
 {% load static tailwind_tags %}
 <!-- This example requires Tailwind CSS v2.0+ -->
 <nav class="bg-black">
-    <div class="mx-auto px-2 sm:px-6 lg:px-8 my-2 sm:my-8">
-      <div class="relative flex items-center justify-between h-24">
+    <div class="mx-auto px-2 sm:px-6 lg:px-8 my-0 sm:my-8">
+      <div class="relative flex items-center justify-between h-20 md:h-24">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
           <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
@@ -31,7 +31,7 @@
         </div>
         <div class="flex-1 flex justify-center sm:justify-end sm:items-stretch items-center">
           <div class="sm:mr-auto">
-            <span class="block w-auto font-rocksalt text-4xl md:text-2xl lg:text-3xl">Maria Dong</span>
+            <span class="block w-auto font-rocksalt text-3xl md:text-2xl lg:text-3xl">Maria Dong</span>
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
@@ -54,15 +54,15 @@
   
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu">
-      <div class="px-2 pt-2 pb-3 space-y-1">
+      <div class="px-2 pt-2 md:pb-3 space-y-1">
         <!-- Current: "bg-neutral-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="bg-neutral-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
+        <!-- <a href="#" class="bg-neutral-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
   
         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
   
         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-  
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+   -->
+        <!-- <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a> -->
       </div>
     </div>
   </nav>
