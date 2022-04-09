@@ -1,5 +1,12 @@
 
-    <div x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5] }">
+    <div x-data="{ 
+        activeSlide: 1, 
+        slides: [
+            1: {
+
+            }, 
+            ] 
+        }">
         <template x-for="slide in slides" :key="slide">
             <div x-show="activeSlide === slide">
              <span x-text="slide"></span>
