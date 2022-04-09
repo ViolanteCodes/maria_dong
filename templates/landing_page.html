@@ -1,14 +1,34 @@
 {% extends 'base.html'  %}
 {% load static %}
-
+{% block additional_js %}
+<script type="javascript">
+Alpine.store = {
+    slides: [
+        {
+            'quote': 'quote',
+            'attribution':'attribution'
+        }
+    ]
+  };
+console.log(slides)
+</script>
+  
+{% endblock additional_js %}
+{% block body_classes %}
+h-screen flex flex-col justify-between
+{% endblock %}
 {% block body %}
-<div class="h-[calc(100vh_-_7rem)] flex flex-col justify-evenly">
-    <img src="{% static '/images/LDT_Landing_compressed.png' %}" class="h-3/5 mx-auto">
-
-<p class="color-white w-4/6 mx-auto mt-4">
-    Maria's book is just the best book to ever book. You'll laugh and cry and think she's a genius.
-    <br>Attribution
-</p>
-
+<img src="{% static '/images/LDT_Landing_compressed.png' %}" class="w-72 grow-0 mx-auto">
+<div class="testimonial-slider">
+    <div class="slide">
+        <p class="text-amber-400 font-caveat w-4/6 mx-auto mt-4 grow-1 leading-6 text-xl">
+            Maria's book is just the best book to ever book. You'll laugh and cry and think she's a genius.
+        </p>
+        <p class="font-caveat w-4/6 mx-auto mt-4 text-xl">
+            Attribution
+        </p>
+    </div>
 </div>
+<button class="color-white w-4/6 mx-auto mt-4 mb-4">Find Out More</button>
+<p>.</p>
 {% endblock body %}

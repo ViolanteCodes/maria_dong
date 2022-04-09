@@ -10,6 +10,10 @@
     font-family: "Rock Salt";
     src: url('/static/fonts/RockSalt-Regular.ttf');
 }
+@font-face {
+    font-family: "Caveat";
+    src: url('/static/fonts/Caveat-Variable.ttf');
+}
 .neon-text {
     text-shadow :
         0 0 19px rgb(229, 173, 228),

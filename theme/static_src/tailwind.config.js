@@ -47,6 +47,7 @@ module.exports = {
             fontFamily:     {
                 shadows: ["Shadows", "sans-serif"],
                 rocksalt: ["Rock Salt", "sans-serif"],
+                caveat: ["Caveat", "serif"],
               },
         },
         screens: {
