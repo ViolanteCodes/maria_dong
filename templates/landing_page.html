@@ -8,9 +8,9 @@ h-screen flex flex-col justify-between
 <img src="{% static '/images/LDT_Landing_compressed.png' %}" class="w-64 grow-0 mx-auto">
 <div 
     class="blurb-slider"
-    x-data="$store.slides2"
+    x-data="$store.slides"
 >
-    <template x-for="slide in $store.slides2" :key="slide.number">
+    <template x-for="slide in $store.slides" :key="slide.number">
         <div class="blurb-slide">
             <p class="text-amber-400 font-caveat w-5/6 mx-auto mt-4 
             grow-1 leading-6 text-xl" x-text="slide.quote"></p>
@@ -24,31 +24,21 @@ h-screen flex flex-col justify-between
 {% block additional_js %}
 <script>
     document.addEventListener('alpine:init', () => {
-        Alpine.store('slides', [
-            {
-                'number': 1,
-                'quote': "one's",
-                'attribution': 'an attribution'
-            },
-            {
-                'number': 2,
-                'quote': 'two',
-                'attribution': 'an attribution'
-            }
-        ]);
-    })
-</script>
-<script>
+        Alpine.store(
+            'slides', [
+                {% for blurb in data.book.fields.blurbs %}
+                {
+                    'number': {{ forloop.counter }},
+                    'quote': "{{ blurb.short_blurb|safe }}",
+                    'attribution': "{{ blurb.attribution_name|safe }}, {{ blurb.attribution_description }}",
+                    'show': {% if forloop.first %}true{% else %}false{% endif %}
+                }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ]);
+    });
     document.addEventListener('alpine:init', () => {
-        Alpine.store('slides2', [
-        {% for blurb in data.book.fields.blurbs %}
-            {
-                'number': {{ forloop.counter }},
-                'quote': "{{ blurb.short_blurb|safe }}",
-                'attribution': "{{ blurb.attribution_name|safe }}, {{ blurb.attribution_description }}"
-            }{% if not forloop.last %},{% endif %}
-        {% endfor %}
-        ]);
-    })
+        Alpine.store(
+            'activeSlide', 1);
+    });
 </script>
 {% endblock additional_js %}
