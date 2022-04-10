@@ -1,22 +1,6 @@
 {% extends 'base.html'  %}
 {% load static %}
-{% block additional_js %}
-<script id="BLURBS" type="javascript">
-const slides() =
-        [
-        {% for blurb in data.book.fields.blurbs %}
-            {
-                'number': {{ forloop.counter }},
-                'quote': '{{ blurb.blurb_content }}',
-                'attribution': '{{ blurb.attribution_name }}, {{ blurb.attribution_description }}'
-            }{% if not forloop.last %},{% endif %}
-        {% endfor %}
-        ]
-    console.log(slides)
-}
-</script>
-  
-{% endblock additional_js %}
+
 {% block body_classes %}
 h-screen flex flex-col justify-between
 {% endblock %}
@@ -24,9 +8,10 @@ h-screen flex flex-col justify-between
 <img src="{% static '/images/LDT_Landing_compressed.png' %}" class="w-72 grow-0 mx-auto">
 <div 
     class="blurb-slider" 
-    x-data="slides"
+    x-data="Alpine.store.slides"
+    x-init="console.log(Alpine.raw(Alpine.store.slides))"
 >
-    <template x-for="slide in slides" :key="slide.number" class="blurb-slide">
+    <template x-for="slide in $store.slides" :key="slide.number" class="blurb-slide">
             <p class="text-amber-400 font-caveat w-4/6 mx-auto mt-4 
             grow-1 leading-6 text-xl" x-text="slide.quote">
             </p>
@@ -42,3 +27,24 @@ h-screen flex flex-col justify-between
 <button class="color-white w-4/6 mx-auto mt-4 mb-4">Find Out More</button>
 <p>.</p>
 {% endblock body %}
+{% block additional_js %}
+<script id="BLURBS" type="javascript">
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('slides' =
+        [
+        {% for blurb in data.book.fields.blurbs %}
+            {
+                'number': {{ forloop.counter }},
+                'quote': '{{ blurb.blurb_content }}',
+                'attribution': '{{ blurb.attribution_name }}, {{ blurb.attribution_description }}'
+            }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+        ])
+    })
+</script>
+<script id="teset" type="javascript">
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('test' = 'foo');
+    })
+</script>
+{% endblock additional_js %}
