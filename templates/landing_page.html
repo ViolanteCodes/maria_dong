@@ -17,12 +17,15 @@ h-screen flex flex-col justify-between
         <div class="blurb-slide" x-show="$store.slider.activeSlide === slide.number">
             <p class="text-amber-400 font-caveat w-5/6 mx-auto mt-4 
             grow-1 leading-6 text-xl" x-text="slide.quote"></p>
-            <p class="font-caveat w-5/6 mx-auto mt-4 text-xl" x-text="slide.attribution"></p>
+            <p class="font-caveat w-5/6 mx-auto mt-4 text-xl">
+                <span x-text="slide.attribution_name"></span>, 
+                <span x-text="slide.attribution_desc"></span>
+                <em><span x-text="slide.attribution_book"></span></em>
+            </p>
         </div>
     </template>
 </div>
 <button class="color-white w-5/6 mx-auto mt-4 mb-4">Find Out More</button>
-<p>.</p>
 {% endblock body %}
 {% block additional_js %}
 <script>
@@ -35,7 +38,9 @@ h-screen flex flex-col justify-between
                     {
                         'number': {{ forloop.counter }},
                         'quote': "{{ blurb.short_blurb|safe }}",
-                        'attribution': "{{ blurb.attribution_name|safe }}, {{ blurb.attribution_description }}"
+                        'attribution_name': "{{ blurb.attribution_name|safe }}", 
+                        'attribution_desc': "{{ blurb.attribution_description|safe }}",
+                        'attribution_book': "{{ blurb.attribution_book|safe }}"
                     }{% if not forloop.last %},{% endif %}
                     {% endfor %}
                 ]
