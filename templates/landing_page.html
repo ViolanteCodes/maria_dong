@@ -5,29 +5,58 @@
 h-screen flex flex-col justify-between
 {% endblock %}
 {% block body %}
-<img src="{% static '/images/LDT_Landing_compressed.png' %}" class="w-64 grow-0 mx-auto">
+<img src="{% static '/images/LDT_Landing_compressed.png' %}" class="w-60 grow-0 mx-auto">
 <div 
     class="blurb-slider"
     x-data="$store.slider"
 >
-    <template 
-        x-for="slide in $store.slider.slides"
-        :key="slide.number"
-    >
-        <div class="blurb-slide" x-show="$store.slider.activeSlide === slide.number">
-            <p class="text-amber-400 font-caveat w-5/6 mx-auto mt-4 
-            grow-1 leading-6 text-xl short-devices-only" x-text="slide.quote"></p>
-            <p class="text-amber-400 font-caveat w-5/6 mx-auto mt-4 
-            grow-1 leading-6 text-xl tall-devices-only" x-text="slide.long_quote"></p>
-            <p class="font-caveat w-5/6 mx-auto mt-4 text-xl">
-                <span x-text="slide.attribution_name"></span>, 
-                <span x-text="slide.attribution_desc"></span>
-                <em><span x-text="slide.attribution_book"></span></em>
-            </p>
-        </div>
-    </template>
+    <div class="flex justify-evenly items-center">
+        <button 
+            class="mx-3 h-10 w-10 shrink-0"
+            x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1"
+        >
+            <img 
+                src="{% static 'images/icons/left-arrow.svg' %}"
+                class="h-10 w-10 opacity-50"
+            >
+        </button>
+        <template 
+            x-for="slide in $store.slider.slides"
+            :key="slide.number"
+        >
+            <div 
+                class="blurb-slide" 
+                x-show="$store.slider.activeSlide === slide.number"
+            >
+                <p class="text-amber-400 font-caveat mx-auto mt-4 
+                grow-1 leading-6 text-xl short-devices-only" x-text="slide.quote"></p>
+                <p class="text-amber-400 font-caveat mx-auto mt-4 
+                grow-1 leading-6 text-xl tall-devices-only" x-text="slide.long_quote"></p>
+
+                <p class="font-caveat mx-auto mt-4 text-xl">
+                    <span x-text="slide.attribution_name"></span>, 
+                    <span x-text="slide.attribution_desc"></span>
+                    <em><span x-text="slide.attribution_book"></span></em>
+                </p>
+            </div>
+        </template>
+        <button 
+            class="mx-3 h-10 w-10 shrink-0"
+            x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1"
+        >
+            <img 
+                src="{% static 'images/icons/right-arrow.svg' %}"
+                class="h-10 w-10 opacity-50"
+            >
+        </button>
+    </div>
 </div>
-<button class="color-white w-5/6 mx-auto mt-4 mb-4">Find Out More</button>
+<button 
+    class="color-white w-5/6 mx-auto mb-4 py-2 font-notosans
+    border-solid border-slate-100 border-2 rounded
+">
+    Find Out More
+</button>
 {% endblock body %}
 {% block additional_js %}
 <script>

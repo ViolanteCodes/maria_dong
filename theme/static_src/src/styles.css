@@ -14,6 +14,13 @@
     font-family: "Caveat";
     src: url('/static/fonts/Caveat-Variable.ttf');
 }
+@font-face {
+    font-family: "Noto Sans";
+    src: url('/static/fonts/NotoSans-Regular.ttf');
+}
+.blurb-slide {
+    height: 236px;
+}
 
 .neon-text {
     text-shadow :

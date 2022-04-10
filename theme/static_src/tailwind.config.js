@@ -48,6 +48,7 @@ module.exports = {
                 shadows: ["Shadows", "sans-serif"],
                 rocksalt: ["Rock Salt", "sans-serif"],
                 caveat: ["Caveat", "serif"],
+                notosans: ["Noto Sans", "sans-serif"]
               },
         },
         screens: {
