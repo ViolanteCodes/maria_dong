@@ -1,16 +1,19 @@
 {% extends 'base.html'  %}
 {% load static %}
 {% block additional_js %}
-<script type="javascript">
-Alpine.store = {
-    slides: [
-        {
-            'quote': 'quote',
-            'attribution':'attribution'
-        }
-    ]
-  };
-console.log(slides)
+<script id="BLURBS" type="javascript">
+const slides() =
+        [
+        {% for blurb in data.book.fields.blurbs %}
+            {
+                'number': {{ forloop.counter }},
+                'quote': '{{ blurb.blurb_content }}',
+                'attribution': '{{ blurb.attribution_name }}, {{ blurb.attribution_description }}'
+            }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+        ]
+    console.log(slides)
+}
 </script>
   
 {% endblock additional_js %}
@@ -20,41 +23,21 @@ h-screen flex flex-col justify-between
 {% block body %}
 <img src="{% static '/images/LDT_Landing_compressed.png' %}" class="w-72 grow-0 mx-auto">
 <div 
-    class="testimonial-slider" 
-    x-data="{
-        activeSlide: 1,
-        slides: [
-            {% for testimonial in testimonials %}
-            {
-                'number: {{ forloop.counter }},
-                'quote: '{{ testimonial.quote }}',
-                'attribution': '{{ testimonial.attribution }}'
-            }{% if not forloop.last %},{% endif %}
-            {% endfor %}
-        ]
-    }
-    ">
-        <template x-for="slide in slides" :key="number">
-            <div x-show="activeSlide === slide">
-             <span x-text="slide"></span>
-             <span>/</span>
-             <span x-text="slides.length"></span>
-            </div>
-        </template>
+    class="blurb-slider" 
+    x-data="slides"
+>
+    <template x-for="slide in slides" :key="slide.number" class="blurb-slide">
+            <p class="text-amber-400 font-caveat w-4/6 mx-auto mt-4 
+            grow-1 leading-6 text-xl" x-text="slide.quote">
+            </p>
+            <p class="font-caveat w-4/6 mx-auto mt-4 text-xl" x-text="slide.attribution">
+                Attribution
+            </p>
+    </template>
         <!-- <div class="buttons">
             <button x-on:click='activeSlide= activeSlide === 1 ? slides.length : activeSlide - 1'>Prev</button>
             <button x-on:click='activeSlide= activeSlide === slides.length ? 1 : activeSlide + 1'>Next</button>
         </div> -->
-    </div>
-
-    <div class="testimonial-slide">
-        <p class="text-amber-400 font-caveat w-4/6 mx-auto mt-4 grow-1 leading-6 text-xl">
-            Maria's book is just the best book to ever book. You'll laugh and cry and think she's a genius.
-        </p>
-        <p class="font-caveat w-4/6 mx-auto mt-4 text-xl">
-            Attribution
-        </p>
-    </div>
 </div>
 <button class="color-white w-4/6 mx-auto mt-4 mb-4">Find Out More</button>
 <p>.</p>

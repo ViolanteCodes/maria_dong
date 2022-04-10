@@ -719,11 +719,6 @@ select {
   margin-bottom: 0px;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -933,24 +928,14 @@ select {
   line-height: 1.5rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .font-semibold {
@@ -963,10 +948,6 @@ select {
 
 .leading-normal {
   line-height: 1.5;
-}
-
-.leading-4 {
-  line-height: 1rem;
 }
 
 .leading-6 {

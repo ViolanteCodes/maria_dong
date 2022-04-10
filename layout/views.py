@@ -22,6 +22,13 @@ def get_menu():
 def landing_page(request):
     """View to return landing Page"""
     nav_menu = get_menu()
+    params = {
+    'page': '1',
+    'page_size': '10',
+    'levels': '3',
+    }
+    data = Butter.pages.get('*', 'landing-page', params)['data']['fields']
     return render(request, 'landing_page.html', {
+        'data': data,
         'nav_menu': nav_menu
     })
