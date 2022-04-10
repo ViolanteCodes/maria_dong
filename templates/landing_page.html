@@ -8,10 +8,13 @@ h-screen flex flex-col justify-between
 <img src="{% static '/images/LDT_Landing_compressed.png' %}" class="w-64 grow-0 mx-auto">
 <div 
     class="blurb-slider"
-    x-data="$store.slides"
+    x-data="$store.slider"
 >
-    <template x-for="slide in $store.slides" :key="slide.number">
-        <div class="blurb-slide">
+    <template 
+        x-for="slide in $store.slider.slides"
+        :key="slide.number"
+    >
+        <div class="blurb-slide" x-show="$store.slider.activeSlide === slide.number">
             <p class="text-amber-400 font-caveat w-5/6 mx-auto mt-4 
             grow-1 leading-6 text-xl" x-text="slide.quote"></p>
             <p class="font-caveat w-5/6 mx-auto mt-4 text-xl" x-text="slide.attribution"></p>
@@ -25,20 +28,19 @@ h-screen flex flex-col justify-between
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.store(
-            'slides', [
-                {% for blurb in data.book.fields.blurbs %}
-                {
-                    'number': {{ forloop.counter }},
-                    'quote': "{{ blurb.short_blurb|safe }}",
-                    'attribution': "{{ blurb.attribution_name|safe }}, {{ blurb.attribution_description }}",
-                    'show': {% if forloop.first %}true{% else %}false{% endif %}
-                }{% if not forloop.last %},{% endif %}
-                {% endfor %}
-            ]);
-    });
-    document.addEventListener('alpine:init', () => {
-        Alpine.store(
-            'activeSlide', 1);
+            'slider', {
+                'activeSlide': 1,
+                'slides': [
+                    {% for blurb in data.book.fields.blurbs %}
+                    {
+                        'number': {{ forloop.counter }},
+                        'quote': "{{ blurb.short_blurb|safe }}",
+                        'attribution': "{{ blurb.attribution_name|safe }}, {{ blurb.attribution_description }}"
+                    }{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ]
+            }
+        )
     });
 </script>
 {% endblock additional_js %}
