@@ -1,0 +1,11 @@
+<script>
+    function resizeFullHeightContainer() {
+        var navHeight = document.getElementById('mainNav').offsetHeight;
+        var mainContainer = document.getElementById('fullHeightContainer');
+        mainContainer.style.height = (window.innerHeight - navHeight)+"px";
+    }
+    document.addEventListener('alpine:init', () =>  {
+        resizeFullHeightContainer();
+    });
+    window.addEventListener('resize', resizeFullHeightContainer);
+</script>

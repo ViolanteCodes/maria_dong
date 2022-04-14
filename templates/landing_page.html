@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block body_classes %}
-h-screen flex flex-col justify-between
+h-screen
 {% endblock %}
 {% block body %}
-<img src="{% static '/images/LDT_Landing_compressed.png' %}" class="w-60 grow-0 mx-auto">
+<div class="flex flex-col h-max justify-evenly" id="fullHeightContainer">
+<img src="{% static '/images/LDT_Landing_compressed.png' %}" class="w-60 sm:w-75 grow-0 mx-auto">
 <div 
     class="blurb-slider"
     x-data="$store.slider"
@@ -57,6 +58,7 @@ h-screen flex flex-col justify-between
 ">
     Find Out More
 </button>
+</div>
 {% endblock body %}
 {% block additional_js %}
 <script>
@@ -80,4 +82,5 @@ h-screen flex flex-col justify-between
         )
     });
 </script>
+{% include 'partials/js_snippets/_full_height_container.html' %}
 {% endblock additional_js %}
