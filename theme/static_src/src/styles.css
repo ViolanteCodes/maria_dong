@@ -3,24 +3,12 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Shadows";
-    src: url('/static/fonts/ShadowsIntoLight-Regular.ttf');
-}
-@font-face {
     font-family: "Rock Salt";
     src: url('/static/fonts/RockSalt-Regular.ttf');
 }
 @font-face {
     font-family: "Caveat";
     src: url('/static/fonts/Caveat-Variable.ttf');
-}
-@font-face {
-    font-family: "Noto Sans";
-    src: url('/static/fonts/NotoSans-Regular.ttf');
-}
-@font-face {
-    font-family: "Square Peg";
-    src: url('/static/fonts/SquarePeg-Regular.ttf');
 }
 @font-face {
     font-family: "Roboto Slab";

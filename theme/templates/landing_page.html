@@ -41,7 +41,7 @@ h-screen
                 <p class="text-amber-400 font-caveat mx-auto mt-4 
                 text-xl sm:text-2xl short-devices-only" x-text="slide.quote"></p>
                 <p class="text-amber-400 font-caveat lg:font-robotoslab mx-auto mt-4 
-                lg:leading-10 text-xl sm:text-2xl lg:text-2xl xl:text-3xl tall-devices-only" x-text="slide.long_quote"></p>
+                text-xl sm:text-2xl lg:text-2xl lg:leading-10 xl:text-3xl xl:leading-10 tall-devices-only" x-text="slide.long_quote"></p>
                 </div>
                 <div class="landing-attribution">
                 <p class="font-caveat mx-auto mt-4 text-xl lg:text-3xl">
@@ -68,9 +68,9 @@ h-screen
 <div class="landing-call-to-action-button flex justify-center items-center">
     <a 
         class="{% include 'partials/landing_page/_find-out-more.html' %}"
+        href="#"
     >
         Find Out More
-    </button>
     </a>
 </div>
 {% endblock body %}

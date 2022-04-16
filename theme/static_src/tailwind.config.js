@@ -45,11 +45,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily:     {
-                shadows: ["Shadows", "sans-serif"],
                 rocksalt: ["Rock Salt", "sans-serif"],
                 caveat: ["Caveat", "serif"],
-                notosans: ["Noto Sans", "sans-serif"],
-                squarepeg: ["Square Peg", "serif"],
                 robotoslab: ["Roboto Slab", "serif"]
               },
         },
