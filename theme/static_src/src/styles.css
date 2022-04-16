@@ -18,6 +18,26 @@
     font-family: "Noto Sans";
     src: url('/static/fonts/NotoSans-Regular.ttf');
 }
+@font-face {
+    font-family: "Square Peg";
+    src: url('/static/fonts/SquarePeg-Regular.ttf');
+}
+@font-face {
+    font-family: "Roboto Slab";
+    src: url('/static/fonts/RobotoSlab-Variable.ttf');
+}
+.landing-image {
+    animation: fade-in 6s ease-out 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 .landing-layout {
     display: grid;
     grid-auto-rows: 1fr;
@@ -73,17 +93,31 @@
     }
     @media (min-width: 1024px) {
         grid-template-areas:
-            "...  ...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... "
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  cta  cta  cta  cta  cta  cta "
-            "...  ...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... ";
+            "...  ...  ...  ...  ...  ...  ...  .... ...  ... "
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  ...  ...  ...  ...  ...  ... "      
+            "img  img  img  img  cta  cta  cta  cta  cta  cta "
+            "...  ...  ...  ...  ...  ...  ...  .... ...  ... ";
+    }
+    @media (min-width: 1200px) {
+        grid-template-areas:
+            "...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... "
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  ...  ...  ...  ...  ...  ... "      
+            "img  img  img  img  img  cta  cta  cta  cta  cta  cta "
+            "...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... ";
     }
 
 }

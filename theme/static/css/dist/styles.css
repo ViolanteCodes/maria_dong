@@ -732,6 +732,11 @@ select {
   margin-bottom: 0px;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -944,6 +949,14 @@ select {
   padding-top: 0.5rem;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -962,6 +975,10 @@ select {
 
 .font-rocksalt {
   font-family: Rock Salt, sans-serif;
+}
+
+.font-robotoslab {
+  font-family: Roboto Slab, serif;
 }
 
 .text-xl {
@@ -996,10 +1013,6 @@ select {
   line-height: 1.5;
 }
 
-.leading-6 {
-  line-height: 1.5rem;
-}
-
 .tracking-normal {
   letter-spacing: 0em;
 }
@@ -1027,6 +1040,15 @@ select {
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.text-amber-300 {
+  --tw-text-opacity: 1;
+  color: rgb(252 211 77 / var(--tw-text-opacity));
+}
+
+.opacity-0 {
+  opacity: 0;
 }
 
 .opacity-50 {
@@ -1063,6 +1085,45 @@ select {
   font-family: "Noto Sans";
 
   src: url('/static/fonts/NotoSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Square Peg";
+
+  src: url('/static/fonts/SquarePeg-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+
+  src: url('/static/fonts/RobotoSlab-Variable.ttf');
+}
+
+.landing-image {
+  -webkit-animation: fade-in 6s ease-out 1;
+          animation: fade-in 6s ease-out 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .landing-layout {
@@ -1130,17 +1191,35 @@ select {
 
 .landing-layout {
     grid-template-areas:
-            "...  ...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... "
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  cta  cta  cta  cta  cta  cta "
-            "...  ...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... "
+            "...  ...  ...  ...  ...  ...  ...  .... ...  ... "
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  ...  ...  ...  ...  ...  ... "      
+            "img  img  img  img  cta  cta  cta  cta  cta  cta "
+            "...  ...  ...  ...  ...  ...  ...  .... ...  ... "
+}
+  }
+
+@media (min-width: 1200px) {
+
+.landing-layout {
+    grid-template-areas:
+            "...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... "
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  ...  ...  ...  ...  ...  ... "      
+            "img  img  img  img  img  cta  cta  cta  cta  cta  cta "
+            "...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... "
 }
   }
 
@@ -1408,20 +1487,28 @@ select {
     padding-bottom: 2rem;
   }
 
-  .lg\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+  .lg\:font-robotoslab {
+    font-family: Roboto Slab, serif;
   }
 
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
   }
+
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .lg\:leading-10 {
+    line-height: 2.5rem;
+  }
 }
 
 @media (min-width: 1280px) {
-  .xl\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+  .xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }

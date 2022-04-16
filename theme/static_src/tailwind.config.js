@@ -48,7 +48,9 @@ module.exports = {
                 shadows: ["Shadows", "sans-serif"],
                 rocksalt: ["Rock Salt", "sans-serif"],
                 caveat: ["Caveat", "serif"],
-                notosans: ["Noto Sans", "sans-serif"]
+                notosans: ["Noto Sans", "sans-serif"],
+                squarepeg: ["Square Peg", "serif"],
+                robotoslab: ["Roboto Slab", "serif"]
               },
         },
         screens: {
