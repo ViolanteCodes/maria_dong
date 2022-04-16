@@ -14,7 +14,7 @@
     font-family: "Roboto Slab";
     src: url('/static/fonts/RobotoSlab-Variable.ttf');
 }
-.landing-image {
+.hero-fade-in {
     animation: fade-in 6s ease-out 1;
     animation-fill-mode: forwards;
 }

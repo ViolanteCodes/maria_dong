@@ -940,14 +940,6 @@ select {
   padding-right: 0.75rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.pb-4 {
-  padding-bottom: 1rem;
-}
-
 .pt-2 {
   padding-top: 0.5rem;
 }
@@ -1076,7 +1068,7 @@ select {
   src: url('/static/fonts/RobotoSlab-Variable.ttf');
 }
 
-.landing-image {
+.hero-fade-in {
   -webkit-animation: fade-in 6s ease-out 1;
           animation: fade-in 6s ease-out 1;
   -webkit-animation-fill-mode: forwards;
