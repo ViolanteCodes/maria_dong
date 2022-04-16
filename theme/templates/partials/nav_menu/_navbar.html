@@ -1,6 +1,12 @@
 {% load static tailwind_tags %}
 <!-- This example requires Tailwind CSS v2.0+ -->
-<nav class="relative top-0 left-0 right-0" id="mainNav">
+<nav 
+  class="relative top-0 left-0 right-0" 
+  id="mainNav"
+  x-data="{isOpen: false}"
+  @keydown.escape="isOpen = false"
+  :class="{ 'shadow-lg bg-fuchsia-900' : isOpen }"
+>
     <div class="mx-auto px-2 sm:px-6 lg:px-8 my-0 sm:py-4 lg:py-8">
       <div class="relative flex items-center justify-between h-20 md:h-24">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -16,7 +22,6 @@
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
               {% for nav_link in nav_menu %}
-              <!-- Current: "bg-neutral-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="{{ nav_link.url }}" class="{% include 'partials/nav_menu/_navlink.html' %}">{{ nav_link.label }}</a>
               {% endfor %}
             </div>
@@ -26,16 +31,25 @@
     </div>
   
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden" id="mobile-menu">
+    <div 
+      class="sm:hidden" 
+      id="mobile-menu"
+      :aria-expanded="isOpen"
+      :class="{ 
+        'flex shadow-3xl absolute bg-fuchsia-900 h-screen w-6/6': isOpen, 
+        'hidden': !isOpen 
+      }"
+    >
       <div class="px-2 pt-2 md:pb-3 space-y-1">
+        {% for nav_link in nav_menu %}
+        <a 
+          href="{{ nav_link.url }}" 
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        >{{ nav_link.label }}</a>
+        {% endfor %}
         <!-- Current: "bg-neutral-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <!-- <a href="#" class="bg-neutral-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
-  
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-  
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
    -->
-        <!-- <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a> -->
       </div>
     </div>
   </nav>
