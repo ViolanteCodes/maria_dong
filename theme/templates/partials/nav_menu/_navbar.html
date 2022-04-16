@@ -30,17 +30,17 @@
       </div>
     </div>
   
-    <!-- Mobile menu, show/hide based on menu state. -->
+    {% comment %} Mobile menu {% endcomment %}
     <div 
-      class="sm:hidden" 
+      class="sm:hidden z-50" 
       id="mobile-menu"
       :aria-expanded="isOpen"
       :class="{ 
-        'flex shadow-3xl absolute bg-fuchsia-900 h-screen w-6/6': isOpen, 
+        'flex flex-col shadow-3xl absolute bg-fuchsia-900 h-screen w-screen opacity-1 items-center justify-between': isOpen, 
         'hidden': !isOpen 
       }"
     >
-      <div class="px-2 pt-2 md:pb-3 space-y-1">
+      <div class="px-2 pt-2 md:pb-3 space-y-1 w-screen opacity-1">
         {% for nav_link in nav_menu %}
         <a 
           href="{{ nav_link.url }}" 
