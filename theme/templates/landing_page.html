@@ -5,65 +5,73 @@
 h-screen
 {% endblock %}
 {% block body %}
-<div class="flex flex-col lg:flex-row h-max justify-evenly lg:justify-center lg:mt-20" id="fullHeightContainer">
-    <div class="w-60 sm:w-72 md:w-80 grow-0 shrink-1 mx-auto">
-        <img src="{% static '/images/LDT_Landing_compressed.png' %}">
+<style>
+    .landing-picture {
+        background-image: url("{% static 'images/LDT_Landing.png' %}");
+    }
+</style>
+<div class="landing-layout" id="fullHeightContainer">
+    <div class="min-h-0 min-w-0 landing-picture landing-image opacity-0">
     </div>
-    <div 
-        class="blurb-slider lg:w-3/6"
+        <div 
+        class="flex justify-evenly lg:justify-center items-center landing-slider" 
         x-data="$store.slider"
     >
-        <div class="flex justify-evenly lg:justify-center items-center">
-            <button 
-                class="shrink-0 lg:shrink-1 mx-3 
-                    h-10 md:h-16 lg:h-10 
-                    w-10 md:w-16 lg:w-10 
-                    sm:ml-12 sm:mr-8 md:ml-16 lg:mx-6 lg:mb-4"
-                x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1"
-            >
-                <img 
-                    src="{% static 'images/icons/left-arrow.svg' %}"
-                    class="h-10 md:h-16 w-10 md:w-16 opacity-50"
-                >
-            </button>
-            <template 
-                x-for="slide in $store.slider.slides"
-                :key="slide.number"
-            >
-                <div 
-                    class="blurb-slide md:mx-8 lg:w-3/6" 
-                    x-show="$store.slider.activeSlide === slide.number"
-                >
-                    <p class="text-amber-400 font-caveat mx-auto mt-4 
-                    grow-1 leading-6 text-xl sm:text-2xl short-devices-only" x-text="slide.quote"></p>
-                    <p class="text-amber-400 font-caveat mx-auto mt-4 
-                    grow-1 leading-6 text-xl sm:text-2xl tall-devices-only" x-text="slide.long_quote"></p>
-
-                    <p class="font-caveat mx-auto mt-4 text-xl">
-                        <span x-text="slide.attribution_name"></span>, 
-                        <span x-text="slide.attribution_desc"></span>
-                        <em><span x-text="slide.attribution_book"></span></em>
-                    </p>
-                </div>
-            </template>
-            <button 
-                class="shrink-0 mx-3 
+        <button 
+            class="shrink-0 lg:shrink-1 mx-3 
                 h-10 md:h-16 lg:h-10 
                 w-10 md:w-16 lg:w-10 
-                sm:mr-12 sm:ml-8 md:mr-16 lg:mx-6"
-                x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1"
+                sm:ml-12 sm:mr-8 md:ml-16 lg:mx-6 lg:mb-4 landing-button-left"
+            x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1"
+        >
+            <img 
+                src="{% static 'images/icons/left-arrow.svg' %}"
+                class="h-10 md:h-16 w-10 md:w-16 opacity-50"
             >
-                <img 
-                    src="{% static 'images/icons/right-arrow.svg' %}"
-                    class="h-10 md:h-16 w-10 md:w-16 opacity-50"
-                >
-            </button>
-        </div>
+        </button>
+        <template 
+            x-for="slide in $store.slider.slides"
+            :key="slide.number"
+        >
+            <div 
+                class="blurb-slide md:mx-8" 
+                x-show="$store.slider.activeSlide === slide.number"
+            >
+                <div class="landing-quote">
+                <p class="text-amber-400 font-caveat mx-auto mt-4 
+                text-xl sm:text-2xl short-devices-only" x-text="slide.quote"></p>
+                <p class="text-amber-400 font-caveat lg:font-robotoslab mx-auto mt-4 
+                text-xl sm:text-2xl lg:text-2xl lg:leading-10 xl:text-3xl xl:leading-10 tall-devices-only" x-text="slide.long_quote"></p>
+                </div>
+                <div class="landing-attribution">
+                <p class="font-caveat mx-auto mt-4 text-xl lg:text-3xl">
+                    <span x-text="slide.attribution_name"></span>, 
+                    <span x-text="slide.attribution_desc"></span>
+                    <em><span x-text="slide.attribution_book" class="text-amber-300"></span></em>
+                </p>
+                </div>
+            </div>
+        </template>
+        <button 
+            class="shrink-0 mx-3 
+            h-10 md:h-16 lg:h-10 
+            w-10 md:w-16 lg:w-10 
+            sm:mr-12 sm:ml-8 md:mr-16 lg:mx-6 landing-button-right"
+            x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1"
+        >
+            <img 
+                src="{% static 'images/icons/right-arrow.svg' %}"
+                class="h-10 md:h-16 w-10 md:w-16 opacity-50"
+            >
+        </button>
     </div>
-    <button 
-        class="{% include 'partials/landing_page/_find-out-more.html' %} lg:hidden">
+<div class="landing-call-to-action-button flex justify-center items-center">
+    <a 
+        class="{% include 'partials/landing_page/_find-out-more.html' %}"
+        href="#"
+    >
         Find Out More
-    </button>
+    </a>
 </div>
 {% endblock body %}
 {% block additional_js %}
