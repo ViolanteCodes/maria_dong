@@ -1,0 +1,21 @@
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.store(
+            'slider', {
+                'activeSlide': 1,
+                'slides': [
+                    {% for blurb in data.book.fields.blurbs %}
+                    {
+                        'number': {{ forloop.counter }},
+                        'quote': "{{ blurb.short_blurb|safe }}",
+                        'long_quote': "{{ blurb.long_blurb|safe }}",
+                        'attribution_name': "{{ blurb.attribution_name|safe }}", 
+                        'attribution_desc': "{{ blurb.attribution_description|safe }}",
+                        'attribution_book': "{{ blurb.attribution_book|safe }}"
+                    }{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ]
+            }
+        )
+    });
+</script>
