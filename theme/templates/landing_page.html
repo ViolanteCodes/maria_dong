@@ -10,7 +10,7 @@ h-screen
         background-image: url("{% static 'images/LDT_Landing.png' %}");
     }
 </style>
-<div class="landing-layout landing-image opacity-0  hero-fade-in" id="fullHeightContainer">
+<div class="landing-layout landing-image opacity-0  hero-fade-in z-40" id="fullHeightContainer">
     <div class="min-h-0 min-w-0 landing-picture">
     </div>
         <div 
@@ -68,33 +68,13 @@ h-screen
 <div class="landing-call-to-action-button flex justify-center items-center">
     <a 
         class="{% include 'partials/landing_page/_find-out-more.html' %}"
-        href="#"
+        href="{% url 'book_page' data.book.slug %}"
     >
         Find Out More
     </a>
 </div>
 {% endblock body %}
 {% block additional_js %}
-<script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.store(
-            'slider', {
-                'activeSlide': 1,
-                'slides': [
-                    {% for blurb in data.book.fields.blurbs %}
-                    {
-                        'number': {{ forloop.counter }},
-                        'quote': "{{ blurb.short_blurb|safe }}",
-                        'long_quote': "{{ blurb.long_blurb|safe }}",
-                        'attribution_name': "{{ blurb.attribution_name|safe }}", 
-                        'attribution_desc': "{{ blurb.attribution_description|safe }}",
-                        'attribution_book': "{{ blurb.attribution_book|safe }}"
-                    }{% if not forloop.last %},{% endif %}
-                    {% endfor %}
-                ]
-            }
-        )
-    });
-</script>
-{% include 'partials/js_snippets/_full_height_container.html' %}
+    {% include 'partials/js_snippets/_construct_book_slider.html' %}
+    {% include 'partials/js_snippets/_full_height_container.html' %}
 {% endblock additional_js %}

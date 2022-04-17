@@ -32,3 +32,18 @@ def landing_page(request):
         'data': data,
         'nav_menu': nav_menu
     })
+
+def book_page(request, book_slug=None):
+    """View that grabs detailed book data"""
+    nav_menu = get_menu()
+    params = {
+        'page': '1',
+        'page_size': '20',
+    }
+    if book_slug:
+        book = Butter.pages.get('*', book_slug, params)
+        return render(request, 'book_detail.html', {
+            'book': book,
+            'nav_menu':nav_menu
+        }
+    )
