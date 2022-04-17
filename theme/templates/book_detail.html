@@ -2,9 +2,64 @@
 {% load static %}
 
 {% block body_classes %}
-{% endblock %}
+{% endblock body_classes %}
 {% block body %}
+<div id="header-box">
+    <h1 class="text-center my-4 text-3xl font-rocksalt text-amber-400">{{ book.data.fields.title }}</h1>
+</div>
+<div id="two-column-container" class="w-100 flex flex-col">
+    <div id="left-column flex flex-col">
+        <img 
+            src="{{ book.data.fields.main_cover_image }}" 
+            alt="Cover image for {{book.data.fields.title}}" 
+            id="cover"
+            class="mx-auto my-4 shrink-1"
+            style="max-width: 70%"
+        >
+        {% if book.data.fields.buy_links %}
+        <ul 
+            id="buy-links"
+            class="flex flex-col w-100 mx-8"
+        >
+            {% for link in book.data.fields.buy_links %}
+            <li>
+                <a href="">{{ link.retailer_name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if book.data.fields.goodreads_link %}
+        <div id="goodreads-button">
+            <a href="{{ book.data.fields.goodreads_link }}">Add on Goodreads</a>
+        </div>
+        {% endif %}
+    </div>
+    <div id="right-column">
+        {% if book.data.fields.featured_in %}
+        <div id="recommended-by">
+            <p>
+                This book has been featured in 
+                {% for featured in book.data.fields.featured_in %}
+                {{ featured.venue }}{% if not forloop.last %}, {% endif %}{% endfor %}.
+            </p>
+        </div>
+        {% endif %}
+        <div id="book-description">
+            {{ book.data.fields.description }}
+        </div>
+    </div>
+</div>
+<ul 
+    id="testimonial-cards"
+    class="flex flex-col block"
+>
+    {% for blurb in book.data.fields.blurbs %}
+    <li>
+        blurb
+    </li>
+    {% endfor %}
+
+</ul>
 {% endblock body %}
 {% block additional_js %}
-    {% include 'partials/js_snippets/_full_height_container.html' %}
 {% endblock additional_js %}

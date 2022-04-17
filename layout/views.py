@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseNotFound
 
 # Import Butter
 from django.conf import settings
@@ -42,8 +43,11 @@ def book_page(request, book_slug=None):
     }
     if book_slug:
         book = Butter.pages.get('*', book_slug, params)
-        return render(request, 'book_detail.html', {
-            'book': book,
-            'nav_menu':nav_menu
-        }
+        if 'detail' in book.keys():
+            return HttpResponseNotFound()         
+        else:
+            return render(request, 'book_detail.html', {
+                'book': book,
+                'nav_menu':nav_menu
+            }
     )
