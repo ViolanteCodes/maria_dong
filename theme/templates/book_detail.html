@@ -2,9 +2,100 @@
 {% load static %}
 
 {% block body_classes %}
-{% endblock %}
+leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
+{% endblock body_classes %}
 {% block body %}
+<div id="header-box">
+    <h1 class="text-center text-xs font-rocksalt text-amber-400 opacity-0">{{ book.data.fields.title }}</h1>
+</div>
+<div id="two-column-container" class="w-100 flex flex-col md:flex-row">
+    <div 
+        id="left-column"
+        class="flex flex-col md:basis-3/6">
+        <img 
+            src="{{ book.data.fields.main_cover_image }}" 
+            alt="Cover image for {{book.data.fields.title}}" 
+            id="cover"
+            class="mx-auto my-4 shrink-1 w-5/6"
+        >
+        {% if book.data.fields.coming_out_on %}
+        <p class="text-center my-4 text-xl lg:text-2xl font-rocksalt text-amber-400">
+            Coming {{ book.data.fields.coming_out_on }}
+        </p>
+        <p class="text-center my-4 text-xl lg:text-2xl font-rocksalt text-amber-400">
+            From {{ book.data.fields.coming_out_from }}
+        </p>
+        {% endif %}
+        <ul 
+            id="buy-links"
+            class="flex flex-col w-100 mx-8 my-4"
+        >
+            {% if book.data.fields.buy_links %}
+            {% for link in book.data.fields.buy_links %}
+            <li>
+                <a 
+                    href="{{ link.buy_url }}"
+                    class="{% include 'partials/books/_buy-link.html' %}"
+                >{{ link.retailer_name}}</a>
+            </li>
+            {% endfor %}
+            {% endif %}
+            {% if book.data.fields.goodreads_link %}
+            <li>
+                <a 
+                    href="{{ book.data.fields.goodreads_link }}"
+                    class="{% include 'partials/books/_buy-link.html' %}"
+                >Add on Goodreads</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    <div id="right-column"
+        class="flex flex-col md:basis-3/6">
+        {% if book.data.fields.featured_in %}
+        <h2 class="text-center my-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
+            As seen on
+        </h2>
+        <div 
+            id="recommended-by"
+            class="w-5/6 mx-auto my-2 font-rocksalt text-center"
+        >
+            <p>
+                {% for featured in book.data.fields.featured_in %}
+                {{ featured.venue }}{% if not forloop.last %}
+                    <span class="font-robotoslab">*</span> {% endif %}{% endfor %}.
+            </p>
+        </div>
+        {% endif %}
+        <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-fuchsia-500">
+            Description
+        </h2>
+        <div 
+            id="book-description"
+            class="w-5/6 mx-auto my-2"
+        >
+            {{ book.data.fields.description|safe }}
+        </div>
+    </div>
+</div>
+{% if book.data.fields.blurbs %}
+<h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
+    Praise
+</h2>
+<ul 
+    id="blurb-cards"
+    class="flex flex-col block"
+>
+    {% for blurb in book.data.fields.blurbs %}
+    <li class="book-blurb-card w-5/6 mx-auto my-4">
+        <p>“{{ blurb.long_blurb }}”</p>
+        <p class="mt-2">—<span class="font-rocksalt text-amber-400">{{ blurb.attribution_name}}</span>, 
+            {{ blurb.attribution_description }} 
+            <span class="font-rocksalt text-amber-400">{{ blurb.attribution_book }}</span></p>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
 {% endblock body %}
 {% block additional_js %}
-    {% include 'partials/js_snippets/_full_height_container.html' %}
 {% endblock additional_js %}
