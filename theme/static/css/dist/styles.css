@@ -1384,11 +1384,6 @@ select {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.hover\:text-fuchsia-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(217 70 239 / var(--tw-text-opacity));
-}
-
 .hover\:text-amber-400:hover {
   --tw-text-opacity: 1;
   color: rgb(251 191 36 / var(--tw-text-opacity));
