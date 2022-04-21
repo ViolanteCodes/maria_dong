@@ -1450,6 +1450,10 @@ select {
     display: block;
   }
 
+  .sm\:flex {
+    display: flex;
+  }
+
   .sm\:hidden {
     display: none;
   }
@@ -1499,6 +1503,10 @@ select {
 
   .md\:mr-16 {
     margin-right: 4rem;
+  }
+
+  .md\:flex {
+    display: flex;
   }
 
   .md\:h-16 {
@@ -1602,10 +1610,6 @@ select {
 
   .lg\:pb-4 {
     padding-bottom: 1rem;
-  }
-
-  .lg\:font-robotoslab {
-    font-family: Roboto Slab, serif;
   }
 
   .lg\:text-2xl {
