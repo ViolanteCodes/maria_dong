@@ -68,7 +68,7 @@ h-screen
 <div class="landing-call-to-action-button flex justify-center items-center">
     <a 
         class="{% include 'partials/landing_page/_find-out-more.html' %}"
-        {% comment %}href="{% url 'book_page' data.book.slug %}"{% endcomment %}
+        href="{% url 'book_page' page_data.book.slug %}"
     >
         Find Out More
     </a>
