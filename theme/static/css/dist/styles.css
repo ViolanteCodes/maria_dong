@@ -1450,10 +1450,6 @@ select {
     display: block;
   }
 
-  .sm\:flex {
-    display: flex;
-  }
-
   .sm\:hidden {
     display: none;
   }
@@ -1503,10 +1499,6 @@ select {
 
   .md\:mr-16 {
     margin-right: 4rem;
-  }
-
-  .md\:flex {
-    display: flex;
   }
 
   .md\:h-16 {
