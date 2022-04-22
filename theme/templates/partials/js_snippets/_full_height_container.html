@@ -5,8 +5,9 @@
         var mobileMenuInner = document.getElementById('mobileMenuInner')
         if (window.innerHeight > 1100 ) {
             mainContainer.style.height = (1100 - navHeight)+"px";
-            var marginHeight = ((window.innerHeight - (navHeight + mainContainer.offsetHeight ))*.2)+"px"
-            mainContainer.style.margin = marginHeight +" auto auto auto"
+            var marginHeight = ((window.innerHeight - (navHeight + mainContainer.offsetHeight ))*.2)+"px";
+            mainContainer.style.height = mainContainer.style.height - marginHeight;
+            mainContainer.style.margin = marginHeight +" auto auto auto";
         } else {
             if (mobileMenuInner !== null) {
                 navHeight = (navHeight - mobileMenuInner.offsetHeight);

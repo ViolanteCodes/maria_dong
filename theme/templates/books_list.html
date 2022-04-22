@@ -1,0 +1,41 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block body_classes %}
+leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4 font-robotoslab
+{% endblock body_classes %}
+{% block body %}
+<div id="header-box">
+    <h1 class="text-center text-3xl my-8 md:my-10 lg:my-16 font-rocksalt text-amber-400">
+        Books By Maria Dong
+    </h1>
+</div>
+{% for book in page_data %}
+<div class="two-column-book-card w-100 flex flex-col md:flex-row">
+    <div 
+        id="left-column"
+        class="flex flex-col md:basis-3/6">
+        <img 
+            src="{{ book.fields.main_cover_image }}" 
+            alt="Cover image for {{book.fields.title}}" 
+            id="cover"
+            class="mx-auto my-4 shrink-1 w-4/6"
+        >
+    </div>
+    <div id="right-column"
+        class="flex flex-col md:basis-3/6 justify-evenly">
+        <div class="w-4/6 mx-auto my-4 md:my-8"
+        >
+            {{ book.fields.short_description }}
+        </div>
+        <a
+            href="{% url 'book_page' book.slug %}"
+            class="{% include 'partials/books/_buy-link.html' %}">
+            Find out More
+        </a>
+    </div>
+</div>
+{% endfor %}
+{% endblock body %}
+{% block additional_js %}
+{% endblock additional_js %}

@@ -755,6 +755,11 @@ select {
   margin-bottom: 0px;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -841,6 +846,10 @@ select {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-4\/6 {
+  width: 66.666667%;
 }
 
 .min-w-0 {
@@ -1027,14 +1036,14 @@ select {
   line-height: 1rem;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-3xl {
@@ -1384,6 +1393,11 @@ select {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.hover\:text-amber-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(251 191 36 / var(--tw-text-opacity));
+}
+
 .hover\:ease-in-out:hover {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1488,6 +1502,16 @@ select {
     margin-right: 2rem;
   }
 
+  .md\:my-10 {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .md\:my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
   .md\:ml-16 {
     margin-left: 4rem;
   }
@@ -1510,6 +1534,10 @@ select {
 
   .md\:basis-3\/6 {
     flex-basis: 50%;
+  }
+
+  .md\:basis-4\/6 {
+    flex-basis: 66.666667%;
   }
 
   .md\:flex-row {
@@ -1565,6 +1593,16 @@ select {
     margin-right: 1.5rem;
   }
 
+  .lg\:my-12 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .lg\:my-16 {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
   .lg\:mb-4 {
     margin-bottom: 1rem;
   }
@@ -1597,10 +1635,6 @@ select {
 
   .lg\:pb-4 {
     padding-bottom: 1rem;
-  }
-
-  .lg\:font-robotoslab {
-    font-family: Roboto Slab, serif;
   }
 
   .lg\:text-2xl {

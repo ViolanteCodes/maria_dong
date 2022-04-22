@@ -4,7 +4,7 @@
             'slider', {
                 'activeSlide': 1,
                 'slides': [
-                    {% for blurb in data.book.fields.blurbs %}
+                    {% for blurb in page_data.book.fields.blurbs %}
                     {
                         'number': {{ forloop.counter }},
                         'quote': "{{ blurb.short_blurb|safe }}",
