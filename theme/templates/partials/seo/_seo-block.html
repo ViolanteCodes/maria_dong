@@ -1,0 +1,37 @@
+{% load static %}
+{% block title %}<title>Maria Dong, Author | {{ page_data.seo.title|safe }}</title>
+{% endblock title %}
+{% block description %}
+<meta name="description" content="{{ page_data.seo.description|safe }}">
+{% endblock description %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+{% block seo %}
+<meta property="og:title" content="{{ page_data.seo.og_title|safe }}">
+<meta property="og:url" content="https://www.mariadong.com{{request.get_full_path}}">
+<meta property="og:image" content="{{ page_data.seo.og_image|safe }}">
+<meta property="og:site_name" content="MariaDong.Com">
+<meta property="og:description" content="{{ page_data.seo.og_description }}">
+<meta property="og:type" content="{{ page_data.seo.og_type }}">
+{% endblock seo %}
+
+{% comment %}
+
+if article
+
+<meta property="og:type" content="article">
+<meta property="article:author" content="Author of article">
+<meta property="article:published_time" content="2022-04-14T12:02:00.000-05:00">
+<meta property="article:modified_time" content="2022-04-22T12:02:00.000-05:00">
+<meta property="article:section" content="Fiction">
+<meta property="article:tag" content="tag">
+<meta property="article:tag" content="tag">
+<meta property="article:tag" content="tag">
+<meta property="article:tag" content="tag">
+<meta property="article:tag" content="tag">
+
+{% endcomment %}

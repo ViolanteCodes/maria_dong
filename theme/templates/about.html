@@ -2,25 +2,18 @@
 {% load static %}
 
 {% block extra_seo %}
-    {% if page_data.og_book.isbn %}
-    <meta property="book:isbn" content="{{ page_data.og_book.isbn }}">{% endif %}
-    <meta property="book:author" content="Maria Dong">
-    {% if page_data.og_book.release_date %}
-    <meta property="book:release_date" content="{{ page_data.og_book.release_date }}">{% endif %}
-    {% if page_data.og_book.tags %}
-    {% for tag in page_data.og_book.tags %}
-    <meta property="book:tag" content="{{ tag.tag|safe }}">{% endfor %}
-    {% endif %}
-
+<meta property="og:type" content="profile">
+<meta property="profile:first_name" content="Maria">
+<meta property="profile:last_name" content="Dong">
+<meta property="profile:username" content="mariadongwrites">
 {% endblock extra_seo %}
 
 {% block body_classes %}
 leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
 {% endblock body_classes %}
-
 {% block body %}
 <div id="header-box">
-    <h1 class="text-center text-xs font-rocksalt text-amber-400 opacity-0">{{ page_data.title }}</h1>
+    <h1 class="text-center text-3xl my-8 md:my-10 lg:my-16 font-rocksalt text-amber-400">{{ page_data.title }}</h1>
 </div>
 <div id="two-column-container" class="w-100 flex flex-col md:flex-row">
     <div 
