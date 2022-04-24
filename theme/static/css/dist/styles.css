@@ -725,6 +725,11 @@ select {
   z-index: 50;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -745,11 +750,6 @@ select {
   margin-bottom: 0.5rem;
 }
 
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
@@ -758,6 +758,11 @@ select {
 .my-0 {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .mb-4 {
@@ -778,6 +783,22 @@ select {
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mt-0 {
+  margin-top: 0px;
 }
 
 .block {
@@ -969,6 +990,43 @@ select {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
+.bg-slate-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+
+.bg-zinc-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(24 24 27 / var(--tw-bg-opacity));
+}
+
+.bg-fuchsia-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 70 239 / var(--tw-bg-opacity));
+}
+
+.bg-fuchsia-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(112 26 117 / var(--tw-bg-opacity));
+}
+
+.bg-purple-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(88 28 135 / var(--tw-bg-opacity));
+}
+
+.bg-purple-900\/50 {
+  background-color: rgb(88 28 135 / 0.5);
+}
+
+.bg-purple-900\/25 {
+  background-color: rgb(88 28 135 / 0.25);
+}
+
+.bg-amber-900\/25 {
+  background-color: rgb(120 53 15 / 0.25);
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -1006,12 +1064,20 @@ select {
   padding-bottom: 0.5rem;
 }
 
-.text-center {
-  text-align: center;
+.pt-8 {
+  padding-top: 2rem;
 }
 
-.font-serif {
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .font-rocksalt {
@@ -1020,6 +1086,10 @@ select {
 
 .font-robotoslab {
   font-family: Roboto Slab, serif;
+}
+
+.font-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .font-caveat {
@@ -1031,9 +1101,9 @@ select {
   line-height: 1.75rem;
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-xl {
@@ -1046,9 +1116,9 @@ select {
   line-height: 2rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .text-base {
@@ -1061,6 +1131,11 @@ select {
   line-height: 1;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -1069,21 +1144,16 @@ select {
   font-weight: 500;
 }
 
-.leading-normal {
-  line-height: 1.5;
-}
-
 .leading-relaxed {
   line-height: 1.625;
 }
 
-.tracking-normal {
-  letter-spacing: 0em;
+.leading-normal {
+  line-height: 1.5;
 }
 
-.text-slate-100 {
-  --tw-text-opacity: 1;
-  color: rgb(241 245 249 / var(--tw-text-opacity));
+.tracking-normal {
+  letter-spacing: 0em;
 }
 
 .text-amber-400 {
@@ -1094,6 +1164,11 @@ select {
 .text-fuchsia-500 {
   --tw-text-opacity: 1;
   color: rgb(217 70 239 / var(--tw-text-opacity));
+}
+
+.text-slate-100 {
+  --tw-text-opacity: 1;
+  color: rgb(241 245 249 / var(--tw-text-opacity));
 }
 
 .text-amber-300 {
@@ -1119,6 +1194,15 @@ select {
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.decoration-solid {
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
+}
+
+.decoration-from-font {
+  text-decoration-thickness: from-font;
 }
 
 .opacity-0 {
@@ -1534,6 +1618,14 @@ select {
 
   .md\:basis-3\/6 {
     flex-basis: 50%;
+  }
+
+  .md\:basis-2\/6 {
+    flex-basis: 33.333333%;
+  }
+
+  .md\:basis-4\/6 {
+    flex-basis: 66.666667%;
   }
 
   .md\:flex-row {
