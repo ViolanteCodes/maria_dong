@@ -12,6 +12,8 @@ urlpatterns = [
         kwargs={'page_slug': 'books'}, name="books_list"), 
     path('books/<page_slug>/', ButterPageView.as_view(template_name='book_detail.html'),
         name="book_page"),
+    path('publications/', ButterPageView.as_view(template_name='shorts.html'), 
+        kwargs={'page_slug':'publications', 'page_type':'short'}, name="publications"),
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
 ]

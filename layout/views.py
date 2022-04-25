@@ -15,12 +15,12 @@ pp = pprint.PrettyPrinter(indent=2)
 class ButterPageView(TemplateView):
     """Base Butter Page View"""
 
-    def get(self, request, page_slug, *args, **kwargs):
+    def get(self, request, page_slug=None, *args, **kwargs):
         context = self.get_context_data(page_slug, *args, **kwargs)
         return self.render_to_response(context)
 
 
-    def get_context_data(self, page_slug, *args, **kwargs):
+    def get_context_data(self, page_slug=None, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         # Get Menu
         if 'main_menu' not in self.kwargs or self.kwargs['main_menu'] != false:
@@ -36,8 +36,13 @@ class ButterPageView(TemplateView):
                 'levels': '3',
             }
         # fetch page_data
-        page_data = self.get_page(page_slug=page_slug, params=params)
-        context['page_data'] = page_data
+        if page_slug is not None:
+            page_data = self.get_page(page_slug=page_slug, params=params)
+            context['page_data'] = page_data
+        if 'page_type' in self.kwargs:
+            page_type = self.kwargs['page_type']
+            page_type_data = self.get_page_type(page_type=page_type, params=params)
+            context['page_type_data'] = page_type_data
         return context
 
     def get_menu(self):
@@ -49,8 +54,20 @@ class ButterPageView(TemplateView):
         nav_menu = Butter.content_fields.get(['navigation_menu'], params)
         return nav_menu['data']['navigation_menu'][0]['menu_items']
 
-    def get_page(self, page_type='*', page_slug="", params={}):
+    def get_page(self, page_type='*', page_slug=None, params={}):
         """Fetch a page from butter"""
-        page_data = Butter.pages.get(page_type, page_slug, params)['data']['fields']
-        pp.pprint(page_data)
-        return page_data
+        if page_slug is not None:
+            page_data = Butter.pages.get(page_type, page_slug, params)['data']['fields']
+            pp.pprint(page_data)
+            return page_data
+
+    def get_page_type(self, page_type='*', preview='0', params={}):
+        """Fetch a page type from butter"""
+        page_type_data = Butter.pages.all(page_type, params)['data']
+        pp.pprint(page_type_data)
+        return page_type_data
+
+    def sort_pieces(self, pieces={}):
+        """ """
+        for piece in pieces:
+            pass
