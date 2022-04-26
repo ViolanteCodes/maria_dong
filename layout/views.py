@@ -7,6 +7,7 @@ from django.conf import settings
 from butter_cms import ButterCMS
 Butter = ButterCMS(settings.BUTTER_TOKEN)
 
+from datetime import datetime
 # Import Pretty Printer
 import pprint
 pp = pprint.PrettyPrinter(indent=2)
@@ -58,16 +59,44 @@ class ButterPageView(TemplateView):
         """Fetch a page from butter"""
         if page_slug is not None:
             page_data = Butter.pages.get(page_type, page_slug, params)['data']['fields']
-            pp.pprint(page_data)
+            # pp.pprint(page_data)
             return page_data
 
     def get_page_type(self, page_type='*', preview='0', params={}):
         """Fetch a page type from butter"""
         page_type_data = Butter.pages.all(page_type, params)['data']
-        pp.pprint(page_type_data)
+        if page_type=='short':
+            sorted_pieces = self.sort_pieces(pieces=page_type_data)
+            return sorted_pieces
         return page_type_data
 
-    def sort_pieces(self, pieces={}):
-        """ """
+    def sort_pieces(self, pieces=[]):
+        """Sort page_type_data for shorts"""
+        essay = []
+        short_fiction = []
+        poetry = []
         for piece in pieces:
-            pass
+            for field_key, field_value in piece['fields'].items():
+                # Convert 'false' strings and empty lists to None for template
+                if field_value == 'false' or not field_value:
+                    piece['fields'][field_key] = None
+                # convert isodate to python datetime object
+                if field_key == 'publication_date':
+                    pub_date = datetime.fromisoformat(field_value)
+                    piece['fields']['publication_date'] = pub_date
+            print(piece)
+            piece_type = piece['fields']['piece_type']
+            if piece_type == 'short-fiction':
+                short_fiction.append(piece['fields'])
+            elif piece_type == 'poetry':
+                poetry.append(piece['fields'])
+            elif piece_type == 'essay':
+                short_fiction.append(piece['fields'])
+            else:
+                print('Piece type not found')
+        self.new_shorts_dict = {
+            'short_fiction': tuple(short_fiction),
+            'poetry': tuple(poetry),
+            'essay': tuple(essay),
+        }
+        return self.new_shorts_dict

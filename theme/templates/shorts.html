@@ -10,76 +10,41 @@
 {% endblock extra_seo %}
 
 {% block body_classes %}
-leading-relaxed text-lg md:text-xl lg:text-2xl mb-4
+leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
 {% endblock body_classes %}
 {% block body %}
 <div id="header-box">
-    <h1 class="text-center text-3xl my-8 md:my-10 lg:my-16 font-rocksalt text-amber-400">{{ page_data.seo.title }}</h1>
+    <h1 class="text-center text-3xl mt-8 mb-8 font-rocksalt text-amber-400">{{ page_data.seo.title }}</h1>
 </div>
-<div class="w-100 flex flex-col md:flex-row my-4 py-4">
-    <div 
-        class="flex flex-col md:basis-2/6 items-center">
-        <img 
-            src="{{ page_data.author_photo.photo_url }}" 
-            alt="A smiling photo of author Maria Dong" 
-            class="mx-auto my-4 shrink-1 w-5/6"
-        >
-        {% if page_data.author_photo.photographer_attribution %}
-        <p class="text-center text-sm my-3 py-2 w-5/6 font-rocksalt bg-zinc-900">
-            Photo by
-            <a href="{{page_data.author_photo.photographer_url}}" 
-                class="decoration-solid decoration-from-font"
-            >
-                {{ page_data.author_photo.photographer_attribution }}
-            </a>
-        </p>
-        {% endif %}
-        {% if page_data.author_photo.makeup_attribution %}
-        <p class="text-center text-sm my-3 py-2 w-5/6 font-rocksalt bg-zinc-900">
-            Hair and Makeup by  
-            <a href="{{page_data.author_photo.makeup_url}}">
-                {{ page_data.author_photo.makeup_attribution }}
-            </a>
-        </p>
-        {% endif %}
-    </div>
-    <div
-        class="flex flex-col md:basis-4/6">
-        <h2 class="text-center my-4 text-2xl lg:text-3xl font-rocksalt text-fuchsia-500">
-            Short Biography
-        </h2>
-        <div 
-            class="w-5/6 mx-auto my-2 text-left"
-        >
-            {{ page_data.short_biography|safe }}
-        </div>
-        <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-fuchsia-500">
-            Extended Biography
-        </h2>
-        <div 
-            id="book-description"
-            class="w-5/6 mx-auto my-2 text-left"
-        >
-            {{ page_data.long_biography|safe }}
-        </div>
-    </div>
-</div>
-<h2 class="bg-purple-900/25 text-center pt-8 pb-4 mb-0 text-3xl font-rocksalt text-amber-400">
-    Contact Information
-</h2>
-<div class="w-100 flex flex-col mt-0 mb-4 py-4 bg-purple-900/25">
-   <ul>
-       {% for icon in page_data.social_icons %}
-       <li>
-            <a 
-                href="{{icon.link}}"
-                aria-label="{{icon.alt_text}}"
-            >
-                <i class="fa {{icon.fa_abbreviation}}"></i>
-            </a>
-       </li>
-       {% endfor %}
-   </ul>
+<div class="w-100 flex flex-col mt-4 py-4 px-4 font-robotoslab">
+   <p class="mb-4">
+       All publications by author Maria Dong, organized by type and publication date. 
+       (This doesn't include books, which you can find <a href="{% url 'books_list' %}">
+        on the books page</a>.
+    </p>
+    <p>
+       Links to audio recordings and reviews provided where available, or you can 
+       jump down to one of the following categories: 
+       <a href="">Essays</a>,
+       <a href="">Short Fiction</a>, or
+       <a href="">Poetry</a>.
+   </p>
+    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}">
+        Essays
+    </h2>
+    <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">
+        {% for piece in page_type_data.essay %}
+            {% include 'partials/shorts/_shorts-li.html' %}
+        {% endfor %}
+    </ul>
+    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}">
+        Short Fiction
+    </h2>
+    <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">
+        {% for piece in page_type_data.short_fiction %}
+            {% include 'partials/shorts/_shorts-li.html' %}
+        {% endfor %}
+    </ul>
 </div>
 {% endblock body %}
 {% block additional_js %}
