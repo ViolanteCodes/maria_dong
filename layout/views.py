@@ -67,6 +67,7 @@ class ButterPageView(TemplateView):
         page_type_data = Butter.pages.all(page_type, params)['data']
         if page_type=='short':
             sorted_pieces = self.sort_pieces(pieces=page_type_data)
+            pp.pprint(sorted_pieces)
             return sorted_pieces
         return page_type_data
 
@@ -84,14 +85,13 @@ class ButterPageView(TemplateView):
                 if field_key == 'publication_date':
                     pub_date = datetime.fromisoformat(field_value)
                     piece['fields']['publication_date'] = pub_date
-            print(piece)
             piece_type = piece['fields']['piece_type']
             if piece_type == 'short-fiction':
                 short_fiction.append(piece['fields'])
             elif piece_type == 'poetry':
                 poetry.append(piece['fields'])
             elif piece_type == 'essay':
-                short_fiction.append(piece['fields'])
+                essay.append(piece['fields'])
             else:
                 print('Piece type not found')
         self.new_shorts_dict = {
