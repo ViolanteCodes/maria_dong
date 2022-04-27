@@ -14,7 +14,11 @@ urlpatterns = [
         name="book_page"),
     path('publications/', ButterPageView.as_view(template_name='shorts.html'), 
         kwargs={
-            'page_slug':'publications', 'page_type':'short', 'order':'publication_date'
+            'page_slug':'publications', 'page_type':'short', 
+            'params': {
+                'page_size':'30',
+                'order':'-publication_date',
+                }
             }, name="publications"),
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),

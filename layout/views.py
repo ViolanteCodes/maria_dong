@@ -64,11 +64,19 @@ class ButterPageView(TemplateView):
 
     def get_page_type(self, page_type='*', preview='0', params={}):
         """Fetch a page type from butter"""
+        if 'params' in self.kwargs:
+            params = self.kwargs['params']
+        else:
+            params = {
+                'page': '1',
+                'page_size': '10',
+                'levels': '3',
+            }
         page_type_data = Butter.pages.all(page_type, params)['data']
         if page_type=='short':
             sorted_pieces = self.sort_pieces(pieces=page_type_data)
-            pp.pprint(sorted_pieces)
             return sorted_pieces
+        pp.pprint(page_type_data)
         return page_type_data
 
     def sort_pieces(self, pieces=[]):

@@ -10,13 +10,13 @@
 {% endblock extra_seo %}
 
 {% block body_classes %}
-leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
+text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed lg:leading-relaxed mb-4
 {% endblock body_classes %}
 {% block body %}
 <div id="header-box">
     <h1 class="text-center text-3xl mt-8 mb-8 font-rocksalt text-amber-400">{{ page_data.seo.title }}</h1>
 </div>
-<div class="w-100 flex flex-col mt-4 py-4 px-4 font-robotoslab">
+<div class="w-100 flex flex-col mt-4 py-4 px-4 font-robotoslab lg:max-w-screen-md lg:mx-auto">
    <p class="mb-4">
        All publications by author Maria Dong, organized by type and publication date. 
        (This doesn't include books, which you can find <a href="{% url 'books_list' %}">
@@ -42,6 +42,14 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
     </h2>
     <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">
         {% for piece in page_type_data.short_fiction %}
+            {% include 'partials/shorts/_shorts-li.html' %}
+        {% endfor %}
+    </ul>
+    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}">
+        Poetry
+    </h2>
+    <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">
+        {% for piece in page_type_data.poetry %}
             {% include 'partials/shorts/_shorts-li.html' %}
         {% endfor %}
     </ul>

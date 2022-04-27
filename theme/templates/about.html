@@ -6,7 +6,7 @@
 <meta property="profile:first_name" content="Maria">
 <meta property="profile:last_name" content="Dong">
 <meta property="profile:username" content="mariadongwrites">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/fe05e6a54c.js" crossorigin="anonymous"></script>
 {% endblock extra_seo %}
 
 {% block body_classes %}
@@ -64,18 +64,21 @@ leading-relaxed text-lg md:text-xl lg:text-2xl mb-4
         </div>
     </div>
 </div>
-<h2 class="bg-purple-900/25 text-center pt-8 pb-4 mb-0 text-3xl font-rocksalt text-amber-400">
-    Contact Information
+<h2 class="bg-purple-900/25 text-center pt-20 pb-16 mb-0 text-3xl font-rocksalt text-amber-400">
+    Drop Maria a Message!
 </h2>
 <div class="w-100 flex flex-col mt-0 mb-4 py-4 bg-purple-900/25">
-   <ul>
+   <ul class="flex flex-row justify-evenly w-6/6 md:w-4/6 md:mx-auto">
        {% for icon in page_data.social_icons %}
        <li>
             <a 
-                href="{{icon.link}}"
                 aria-label="{{icon.alt_text}}"
+                class="text-fuchsia-500 text-5xl md:text-7xl"
+                href="{{icon.link}}"
+                target="_blank"
+                title="{{icon.alt_text}}"
             >
-                <i class="fa {{icon.fa_abbreviation}}"></i>
+                <i class="{{icon.fa_abbreviation}}"></i>
             </a>
        </li>
        {% endfor %}

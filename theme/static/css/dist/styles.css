@@ -797,6 +797,14 @@ select {
   margin-bottom: 0.5rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .block {
   display: block;
 }
@@ -825,16 +833,16 @@ select {
   display: none;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .h-10 {
   height: 2.5rem;
 }
 
 .h-20 {
   height: 5rem;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .h-6 {
@@ -895,6 +903,10 @@ select {
 
 .list-none {
   list-style-type: none;
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -1028,12 +1040,12 @@ select {
   padding-right: 0.75rem;
 }
 
-.pt-8 {
-  padding-top: 2rem;
+.pt-20 {
+  padding-top: 5rem;
 }
 
-.pb-4 {
-  padding-bottom: 1rem;
+.pb-16 {
+  padding-bottom: 4rem;
 }
 
 .pt-2 {
@@ -1088,6 +1100,11 @@ select {
   line-height: 2rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -1101,11 +1118,6 @@ select {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 
 .font-semibold {
@@ -1126,10 +1138,6 @@ select {
 
 .tracking-normal {
   letter-spacing: 0em;
-}
-
-.tracking-wide {
-  letter-spacing: 0.025em;
 }
 
 .tracking-wider {
@@ -1273,17 +1281,15 @@ select {
   grid-auto-rows: 1fr;
   grid-auto-columns: 1fr;
   grid-template-areas: 
-        "...  ...  ...  ...  ...  ...  ...  ..."
         "...  img  img  img  img  img  img  ..."
         "...  img  img  img  img  img  img  ..."
         "...  img  img  img  img  img  img  ..."
         "...  img  img  img  img  img  img  ..."
-        "...  ...  ...  ...  ...  ...  ...  ..."
         "sli  sli  sli  sli  sli  sli  sli  sli"
         "sli  sli  sli  sli  sli  sli  sli  sli"
         "sli  sli  sli  sli  sli  sli  sli  sli"
         "sli  sli  sli  sli  sli  sli  sli  sli"
-        "...  ...  ...  ...  ...  ...  ...  ..."
+        "sli  sli  sli  sli  sli  sli  sli  sli"
         "...  cta  cta  cta  cta  cta  cta  ..."
         "...  ...  ...  ...  ...  ...  ...  ...";
 }
@@ -1309,30 +1315,26 @@ select {
 
 .landing-layout {
     grid-template-areas: 
-            "...  ...  ...  ...  ...  ...  ...  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  ...  ...  ...  ...  ...  ...  ..."
-            "sli  sli  sli  sli  sli  sli  sli  sli"
-            "sli  sli  sli  sli  sli  sli  sli  sli"
-            "sli  sli  sli  sli  sli  sli  sli  sli"
-            "sli  sli  sli  sli  sli  sli  sli  sli"
-            "...  ...  ...  ...  ...  ...  ...  ..."
-            "...  cta  cta  cta  cta  cta  cta  ..."
-            "...  ...  ...  ...  ...  ...  ...  ..."
+            "...  ...  ...  ...  ...  ...  ...  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "sli  sli  sli  sli  sli  sli  sli  sli "
+            "sli  sli  sli  sli  sli  sli  sli  sli "
+            "sli  sli  sli  sli  sli  sli  sli  sli "
+            "sli  sli  sli  sli  sli  sli  sli  sli "
+            "...  cta  cta  cta  cta  cta  cta  ... "
+            "...  ...  ...  ...  ...  ...  ...  ... "
 }
   }
 
-@media (min-width: 1024px) {
-
-.landing-layout {
-    grid-template-areas:
+/* @media (min-width: 1024px) {
+        grid-template-areas:
             "...  ...  ...  ...  ...  ...  ...  .... ...  ... "
             "img  img  img  img  sli  sli  sli  sli  sli  sli "
             "img  img  img  img  sli  sli  sli  sli  sli  sli "      
@@ -1343,24 +1345,22 @@ select {
             "img  img  img  img  sli  sli  sli  sli  sli  sli "      
             "img  img  img  img  ...  ...  ...  ...  ...  ... "      
             "img  img  img  img  cta  cta  cta  cta  cta  cta "
-            "...  ...  ...  ...  ...  ...  ...  .... ...  ... "
-}
-  }
+            "...  ...  ...  ...  ...  ...  ...  .... ...  ... ";
+    } */
 
 @media (min-width: 1200px) {
 
 .landing-layout {
     grid-template-areas:
+            "...  ...  ...  ...  ...  sli  sli  sli  sli  sli  sli "
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  cta  cta  cta  cta  cta  cta "      
             "...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... "
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  ...  ...  ...  ...  ... "      
-            "img  img  img  img  img  cta  cta  cta  cta  cta  cta "
             "...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... "
 }
   }
@@ -1566,6 +1566,11 @@ select {
     margin-bottom: 2.5rem;
   }
 
+  .md\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .md\:my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -1590,6 +1595,10 @@ select {
 
   .md\:h-24 {
     height: 6rem;
+  }
+
+  .md\:w-4\/6 {
+    width: 66.666667%;
   }
 
   .md\:w-16 {
@@ -1621,9 +1630,18 @@ select {
     line-height: 1.75rem;
   }
 
+  .md\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .md\:leading-relaxed {
+    line-height: 1.625;
   }
 }
 
@@ -1666,6 +1684,11 @@ select {
     margin-right: 1.5rem;
   }
 
+  .lg\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .lg\:mb-4 {
     margin-bottom: 1rem;
   }
@@ -1676,6 +1699,10 @@ select {
 
   .lg\:w-10 {
     width: 2.5rem;
+  }
+
+  .lg\:max-w-screen-md {
+    max-width: 768px;
   }
 
   .lg\:justify-center {
@@ -1717,15 +1744,15 @@ select {
   .lg\:leading-10 {
     line-height: 2.5rem;
   }
+
+  .lg\:leading-relaxed {
+    line-height: 1.625;
+  }
 }
 
 @media (min-width: 1280px) {
-  .xl\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
-  .xl\:leading-10 {
+  .xl\:text-4xl {
+    font-size: 2.25rem;
     line-height: 2.5rem;
   }
 }

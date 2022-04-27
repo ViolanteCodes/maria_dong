@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block body_classes %}
-h-screen
 {% endblock %}
 {% block body %}
 <style>
@@ -10,7 +9,7 @@ h-screen
         background-image: url("{% static 'images/LDT_Landing.png' %}");
     }
 </style>
-<div class="landing-layout landing-image opacity-0  hero-fade-in z-40" id="fullHeightContainer">
+<div class="landing-layout landing-image opacity-0  hero-fade-in z-40">
     <div class="min-h-0 min-w-0 landing-picture">
     </div>
         <div 
@@ -39,7 +38,8 @@ h-screen
             >
                 <div class="landing-quote">
                 <p class="text-amber-400 font-caveat mx-auto mt-4 
-                text-xl sm:text-2xl lg:text-2xl lg:leading-10 xl:text-3xl xl:leading-10" x-text="slide.quote"></p>
+                text-xl sm:text-2xl lg:text-2xl lg:leading-10 lg:text-3xl 
+                xl:text-4xl lg:leading-10 align-end" x-text="slide.quote"></p>
                 </div>
                 <div class="landing-attribution">
                 <p class="font-caveat mx-auto mt-4 text-xl lg:text-3xl">
@@ -74,5 +74,4 @@ h-screen
 {% endblock body %}
 {% block additional_js %}
     {% include 'partials/js_snippets/_construct_book_slider.html' %}
-    {% include 'partials/js_snippets/_full_height_container.html' %}
 {% endblock additional_js %}
