@@ -91,7 +91,6 @@
     } */
     @media (min-width: 1200px) {
         grid-template-areas:
-            "...  ...  ...  ...  ...  sli  sli  sli  sli  sli  sli "
             "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
             "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
             "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      

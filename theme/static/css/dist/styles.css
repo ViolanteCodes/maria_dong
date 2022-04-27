@@ -1040,6 +1040,11 @@ select {
   padding-right: 0.75rem;
 }
 
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
 .pt-20 {
   padding-top: 5rem;
 }
@@ -1352,7 +1357,6 @@ select {
 
 .landing-layout {
     grid-template-areas:
-            "...  ...  ...  ...  ...  sli  sli  sli  sli  sli  sli "
             "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
             "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
             "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
@@ -1487,6 +1491,11 @@ select {
 }
 
 @media (min-width: 640px) {
+  .sm\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .sm\:ml-12 {
     margin-left: 3rem;
   }
@@ -1503,10 +1512,6 @@ select {
     margin-left: 2rem;
   }
 
-  .sm\:mr-auto {
-    margin-right: auto;
-  }
-
   .sm\:mt-auto {
     margin-top: auto;
   }
@@ -1515,8 +1520,8 @@ select {
     margin-bottom: auto;
   }
 
-  .sm\:ml-6 {
-    margin-left: 1.5rem;
+  .sm\:mb-4 {
+    margin-bottom: 1rem;
   }
 
   .sm\:block {
@@ -1529,14 +1534,6 @@ select {
 
   .sm\:w-4\/6 {
     width: 66.666667%;
-  }
-
-  .sm\:items-stretch {
-    align-items: stretch;
-  }
-
-  .sm\:justify-end {
-    justify-content: flex-end;
   }
 
   .sm\:px-6 {
@@ -1693,6 +1690,10 @@ select {
     margin-bottom: 1rem;
   }
 
+  .lg\:mb-8 {
+    margin-bottom: 2rem;
+  }
+
   .lg\:h-10 {
     height: 2.5rem;
   }
@@ -1719,12 +1720,21 @@ select {
     padding-bottom: 2rem;
   }
 
+  .lg\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
   .lg\:pt-4 {
     padding-top: 1rem;
   }
 
   .lg\:pb-4 {
     padding-bottom: 1rem;
+  }
+
+  .lg\:pt-16 {
+    padding-top: 4rem;
   }
 
   .lg\:text-2xl {
@@ -1735,6 +1745,21 @@ select {
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 
   .lg\:leading-loose {

@@ -1,5 +1,5 @@
 {% load static tailwind_tags %}
-<!-- This example requires Tailwind CSS v2.0+ -->
+<!-- Nav Outer Container -->
 <nav 
   class="sticky top-0 left-0 right-0 z-50 purple-black-body-gradient opacity-95" 
   id="mainNav"
@@ -7,27 +7,33 @@
   @keydown.escape="isOpen = false"
   :class="{ 'shadow-lg' : isOpen }"
 >
-    <div class="mx-auto px-2 sm:px-6 lg:px-8 my-0 sm:py-4 lg:py-8">
-      <div class="relative flex items-center justify-between h-20 md:h-24">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          {% include 'partials/nav_menu/_navbutton.html' %}
-        </div>
-        <div class="flex-1 flex justify-center sm:justify-end sm:items-stretch items-center">
-          <div class="sm:mr-auto sm:mt-auto sm:mb-auto">
-            <a 
-              class="block w-auto font-rocksalt text-3xl sm:text-xl md:text-2xl lg:text-2xl neon-text"
-              href="/"
-            >Maria Dong</span>
-          </div>
-          <div class="hidden sm:block sm:ml-6">
-            <div class="flex space-x-4">
-              {% for nav_link in nav_menu %}
-              <a href="{% url nav_link.url_name %}" class="{% include 'partials/nav_menu/_navlink.html' %}">{{ nav_link.label }}</a>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
+  <div class="mx-auto px-2 sm:px-6 lg:px-8 my-0 py-4 lg:pt-16">
+    <!-- Top Block -->
+    <div class="relative flex items-center justify-center mb-0 sm:mb-4 lg:mb-8">
+      <!-- button -->
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        {% include 'partials/nav_menu/_navbutton.html' %}
       </div>
+      <!-- Name -->
+      <div class="sm:mx-auto sm:mt-auto sm:mb-auto">
+        <a 
+          class="block w-auto font-rocksalt text-3xl sm:text-xl md:text-2xl lg:text-7xl neon-text"
+          href="/"
+        >Maria Dong</span>
+      </div> <!-- End Name -->
+    </div> <!-- End Top Block -->
+    <div class="relative flex items-center justify-center">
+        <div class="hidden sm:block">
+          <ul class="flex space-x-4">
+            {% for nav_link in nav_menu %}
+            <li class="list-style-none">
+              <a 
+                href="{% url nav_link.url_name %}" 
+                class="{% include 'partials/nav_menu/_navlink.html' %}">{{ nav_link.label }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
     </div>
   
     {% comment %} Mobile menu {% endcomment %}
