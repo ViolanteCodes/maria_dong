@@ -4,8 +4,10 @@ from layout.views import ButterPageView
 
 
 urlpatterns = [
-    path('', ButterPageView.as_view(template_name="landing_page.html"),
-        kwargs={'page_slug': 'landing-page'}),
+    path('', ButterPageView.as_view(template_name="link_tree.html"),
+        kwargs={'page_slug': 'link-tree'}, name="link_tree"),
+    path('landing/', ButterPageView.as_view(template_name="landing_page.html"),
+        kwargs={'page_slug': 'landing-page'}, name="home"),
     path('about/', ButterPageView.as_view(template_name="about.html"),
         kwargs={'page_slug': 'about'}, name="about"),
     path('books/', ButterPageView.as_view(template_name="books_list.html"), 
