@@ -765,6 +765,11 @@ select {
   margin-bottom: 0px;
 }
 
+.my-36 {
+  margin-top: 9rem;
+  margin-bottom: 9rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -803,6 +808,10 @@ select {
 
 .mb-10 {
   margin-bottom: 2.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 
 .block {
@@ -845,8 +854,20 @@ select {
   height: 1.5rem;
 }
 
+.h-5\/6 {
+  height: 83.333333%;
+}
+
 .min-h-0 {
   min-height: 0px;
+}
+
+.min-h-\[75vh\] {
+  min-height: 75vh;
+}
+
+.min-h-\[50vh\] {
+  min-height: 50vh;
 }
 
 .w-5\/6 {
@@ -915,6 +936,10 @@ select {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
 }
 
 .justify-evenly {
@@ -1032,6 +1057,11 @@ select {
   padding-right: 0.75rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .pt-20 {
   padding-top: 5rem;
 }
@@ -1046,6 +1076,10 @@ select {
 
 .pb-2 {
   padding-bottom: 0.5rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
 }
 
 .text-left {
@@ -1572,6 +1606,14 @@ select {
     margin-bottom: 1.5rem;
   }
 
+  .md\:mt-16 {
+    margin-top: 4rem;
+  }
+
+  .md\:mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
   .md\:h-16 {
     height: 4rem;
   }
@@ -1740,6 +1782,14 @@ select {
 @media (min-width: 1280px) {
   .xl\:mb-12 {
     margin-bottom: 3rem;
+  }
+
+  .xl\:mb-8 {
+    margin-bottom: 2rem;
+  }
+
+  .xl\:mb-10 {
+    margin-bottom: 2.5rem;
   }
 
   .xl\:text-4xl {

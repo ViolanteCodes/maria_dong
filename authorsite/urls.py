@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from layout.views import ButterPageView
+from layout.views import ButterPageView, ContactFormView
 
 
 urlpatterns = [
@@ -10,6 +10,8 @@ urlpatterns = [
         kwargs={'page_slug': 'landing-page'}, name="home"),
     path('about/', ButterPageView.as_view(template_name="about.html"),
         kwargs={'page_slug': 'about'}, name="about"),
+    path('contact/', ContactFormView.as_view(), kwargs={'page_slug': 'about'},
+        name="contact_form"),
     path('books/', ButterPageView.as_view(template_name="books_list.html"), 
         kwargs={'page_slug': 'books'}, name="books_list"), 
     path('books/<page_slug>/', ButterPageView.as_view(template_name='book_detail.html'),

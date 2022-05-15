@@ -1,6 +1,17 @@
 from django.shortcuts import render
 from django.http import Http404
 from django.views.generic import TemplateView
+from django.shortcuts import render
+
+# Create your views here.
+
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from .forms import ContactForm
+from django.conf import settings
+from django.views.generic.edit import FormView
+
 
 # Import Butter
 from django.conf import settings
@@ -13,13 +24,12 @@ import pprint
 pp = pprint.PrettyPrinter(indent=2)
 # Create your views here.
 
-class ButterPageView(TemplateView):
-    """Base Butter Page View"""
+class ButterMixin:
+    """Mixin that provides access to all Butter Methods"""
 
     def get(self, request, page_slug=None, *args, **kwargs):
         context = self.get_context_data(page_slug, *args, **kwargs)
         return self.render_to_response(context)
-
 
     def get_context_data(self, page_slug=None, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -59,7 +69,7 @@ class ButterPageView(TemplateView):
         """Fetch a page from butter"""
         if page_slug is not None:
             page_data = Butter.pages.get(page_type, page_slug, params)['data']['fields']
-            # pp.pprint(page_data)
+            pp.pprint(page_data)
             return page_data
 
     def get_page_type(self, page_type='*', preview='0', params={}):
@@ -108,3 +118,38 @@ class ButterPageView(TemplateView):
             'essay': tuple(essay),
         }
         return self.new_shorts_dict
+
+class ButterPageView(ButterMixin, TemplateView):
+    """Base Butter Page View"""
+
+class ContactFormView(ButterMixin, FormView):
+    import random
+    template_name = 'contact.html'
+    form_class = ContactForm
+    success_url = '/success/'
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        subject = 'Contact Form Submission from MariaDong.com'
+        sender_email = form.cleaned_data['sender_email']
+        from_email = settings.CONTACT_EMAIL
+        sender_name = form.cleaned_data['sender_name']
+        sender_subject = form.cleaned_data['sender_subject']
+        message = form.cleaned_data['message']
+        full_message = "You have the following contact form submission from Maria Dong.com:\n\n"""
+        full_message += f"\n\tFrom Sender: {sender_name}."
+        full_message += f"\n\tSender's email: {sender_email}."
+        full_message += f"\n\tSubject: {sender_subject}."
+        full_message += f"\n\tMessage:\n\n\t{message}"
+        message = full_message
+        human = True
+
+        try:
+            send_mail(subject, message, from_email, [from_email], fail_silently=False)
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        return super().form_valid(form)
+        
+def successView(request):
+    return render(request, 'contact/success.html')
