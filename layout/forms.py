@@ -1,9 +1,9 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-def validate_dong(captcha_phrase, captcha_answer):
-    if captcha_answer.lower() != captcha_phrase.lower():
-        raise ValidationError(message="Please type the captcha word into the box.",
+def validate_dong(value):
+    if value.lower() != "dong":
+        raise ValidationError(message="Please type Maria's last name in the box.",
             params={'value': value},
         )
 
