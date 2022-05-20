@@ -1,38 +1,55 @@
-<div>
+<div
+    class="w-100">
     <form 
         method="post"
-        class="flex flex-col justify-center items-center"
+        class="flex flex-col justify-center items-center mt-4 md:mt-8 lg:mt-10 xl:mt-16"
     >
     {% csrf_token %}
     <div class="{% include 'partials/contact_form/_field-wrapper.html' %}">
         {{form.sender_name.errors}}
-        <label for "{{form.sender_name.id_for_label}}">Please enter your name.</label>
+        <label 
+            for "{{form.sender_name.id_for_label}}"
+            class="{% include 'partials/contact_form/_form-label.html' %}"
+        >Please enter your name.</label>
         <p>{{form.sender_name}}</p>
     </div>
     <div class="{% include 'partials/contact_form/_field-wrapper.html' %}">
         {{form.sender_email.errors}}
-        <label for "{{form.sender_email.id_for_label}}">Please enter your email address.</label>
+        <label 
+            for "{{form.sender_email.id_for_label}}"
+            class="{% include 'partials/contact_form/_form-label.html' %}"
+        >Please enter your email address.</label>
         <p>{{form.sender_email}}</p>
     </div>
     <div class="{% include 'partials/contact_form/_field-wrapper.html' %}">
         {{form.sender_subject.errors}}
-        <label for "{{form.sender_subject.id_for_label}}">Please enter a subject.</label>
+        <label 
+            for "{{form.sender_subject.id_for_label}}"
+            class="{% include 'partials/contact_form/_form-label.html' %}"
+        >
+        Please enter a subject.</label>
         <p>{{form.sender_subject}}</p>
     </div>
     <div class="{% include 'partials/contact_form/_field-wrapper.html' %}">
         {{form.message.errors}}
-        <label for "{{form.message.id_for_label}}">What is your message?</label>
+        <label 
+            for "{{form.message.id_for_label}}"
+            class="{% include 'partials/contact_form/_form-label.html' %}"
+        >What is your message?</label>
         <p>{{form.message}}</p>
     </div>
     <div class="{% include 'partials/contact_form/_field-wrapper.html' %}">
         {{form.dong_field.errors}}
         <p>
-            <label for "{{form.dong_field.id_for_label}}">Verify you're not a bot by entering my last name in the box.</label>
+            <label 
+                for "{{form.dong_field.id_for_label}}"
+                class="{% include 'partials/contact_form/_form-label.html' %}"
+            >Verify you're not a bot by entering my last name in the box.</label>
         </p>
         <p class="fieldwrapper email-card">{{form.dong_field}}</p>
     </div>
-    <div class="form-actions email-card">
-    <button type="submit" class="email-card">Send</button>
+    <div class="form-actions {% include 'partials/contact_form/_field-wrapper.html' %}">
+    <button type="submit" class="{% include 'partials/books/_buy-link.html' %}">Send</button>
     </div>
 </form>
 </div>

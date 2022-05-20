@@ -725,11 +725,6 @@ select {
   z-index: 50;
 }
 
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -793,6 +788,14 @@ select {
   margin-bottom: 2rem;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -803,10 +806,6 @@ select {
 
 .mt-20 {
   margin-top: 5rem;
-}
-
-.mb-10 {
-  margin-bottom: 2.5rem;
 }
 
 .block {
@@ -1102,11 +1101,6 @@ select {
   line-height: 1.75rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1115,6 +1109,11 @@ select {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-5xl {
@@ -1161,14 +1160,14 @@ select {
   letter-spacing: 0.05em;
 }
 
-.text-amber-400 {
-  --tw-text-opacity: 1;
-  color: rgb(251 191 36 / var(--tw-text-opacity));
-}
-
 .text-fuchsia-500 {
   --tw-text-opacity: 1;
   color: rgb(217 70 239 / var(--tw-text-opacity));
+}
+
+.text-amber-400 {
+  --tw-text-opacity: 1;
+  color: rgb(251 191 36 / var(--tw-text-opacity));
 }
 
 .text-slate-100 {
@@ -1444,6 +1443,33 @@ select {
   flex-wrap: wrap;
 }
 
+.fieldwrapper textarea {
+  background-color: rgba(3, 3, 3, 0.8);
+  border: 5px dashed #d41dda;
+  max-width: 80vw;
+  font-size: 10px;
+}
+
+@media (min-width: 1200px) {
+
+.fieldwrapper textarea {
+    font-size: 40px
+}
+  }
+
+.fieldwrapper input {
+  background-color: rgba(3, 3, 3, 0.8);
+  border: 5px dashed #d41dda;
+  font-size: 10px;
+}
+
+@media (min-width: 1200px) {
+
+.fieldwrapper input {
+    font-size: 40px
+}
+  }
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -1565,11 +1591,6 @@ select {
 }
 
 @media (min-width: 768px) {
-  .md\:my-10 {
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
-  }
-
   .md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
@@ -1595,6 +1616,10 @@ select {
 
   .md\:mt-16 {
     margin-top: 4rem;
+  }
+
+  .md\:mt-8 {
+    margin-top: 2rem;
   }
 
   .md\:mb-2 {
@@ -1642,8 +1667,8 @@ select {
     line-height: 1.75rem;
   }
 
-  .md\:text-7xl {
-    font-size: 4.5rem;
+  .md\:text-8xl {
+    font-size: 6rem;
     line-height: 1;
   }
 
@@ -1686,11 +1711,6 @@ select {
     }
   }
 
-  .lg\:my-16 {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-  }
-
   .lg\:mx-6 {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
@@ -1701,18 +1721,12 @@ select {
     margin-right: auto;
   }
 
-  .lg\:my-12 {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
-
-  .lg\:my-10 {
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
-  }
-
   .lg\:mb-4 {
     margin-bottom: 1rem;
+  }
+
+  .lg\:mt-10 {
+    margin-top: 2.5rem;
   }
 
   .lg\:mb-8 {
@@ -1753,10 +1767,6 @@ select {
     padding-bottom: 1rem;
   }
 
-  .lg\:pt-16 {
-    padding-top: 4rem;
-  }
-
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -1786,6 +1796,10 @@ select {
 }
 
 @media (min-width: 1280px) {
+  .xl\:mt-16 {
+    margin-top: 4rem;
+  }
+
   .xl\:mb-10 {
     margin-bottom: 2.5rem;
   }
