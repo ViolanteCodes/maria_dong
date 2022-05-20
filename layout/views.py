@@ -124,7 +124,7 @@ class ButterPageView(ButterMixin, TemplateView):
 
 class ContactFormView(ButterMixin, FormView):
     import random
-    template_name = 'contact.html'
+    template_name = 'about.html'
     form_class = ContactForm
     success_url = '/success/'
 
