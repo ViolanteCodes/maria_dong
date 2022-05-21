@@ -126,7 +126,7 @@ class ContactFormView(ButterMixin, FormView):
     import random
     template_name = 'about.html'
     form_class = ContactForm
-    success_url = '/success/'
+    success_url = 'success/'
 
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.

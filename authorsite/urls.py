@@ -10,6 +10,8 @@ urlpatterns = [
         kwargs={'page_slug': 'link-tree'}, name="link_tree"),
     path('about/', ContactFormView.as_view(template_name="about.html"),
         kwargs={'page_slug': 'about'}, name="about"),
+    path('success/', ButterPageView.as_view(template_name="success.html"),
+        kwargs={'page_slug': 'success'}, name="sucess"),
     path('books/', ButterPageView.as_view(template_name="books_list.html"), 
         kwargs={'page_slug': 'books'}, name="books_list"), 
     path('books/<page_slug>/', ButterPageView.as_view(template_name='book_detail.html'),
