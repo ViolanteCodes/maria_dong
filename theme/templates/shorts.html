@@ -1,0 +1,59 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block extra_seo %}
+<meta property="og:type" content="profile">
+<meta property="profile:first_name" content="Maria">
+<meta property="profile:last_name" content="Dong">
+<meta property="profile:username" content="mariadongwrites">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+{% endblock extra_seo %}
+
+{% block body_classes %}
+text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed lg:leading-relaxed mb-4
+{% endblock body_classes %}
+{% block body %}
+<div id="header-box">
+    <h1 class="{% include 'partials/components/_h1.html' %}">{{ page_data.seo.title }}</h1>
+</div>
+<div class="w-100 flex flex-col mt-4 py-4 px-4 font-robotoslab lg:max-w-screen-md lg:mx-auto">
+   <p class="mb-4">
+       All publications by author Maria Dong, organized by type and publication date. 
+       (This doesn't include books, which you can find <a href="{% url 'books_list' %}">
+        on the books page</a>.
+    </p>
+    <p>
+       Links to audio recordings and reviews provided where available, or you can 
+       jump down to one of the following categories: 
+       <a href="#essays">Essays</a>,
+       <a href="#short-fiction">Short Fiction</a>, or
+       <a href="#poetry">Poetry</a>.
+   </p>
+    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}" id="essays">
+        Essays
+    </h2>
+    <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">
+        {% for piece in page_type_data.essay %}
+            {% include 'partials/shorts/_shorts-li.html' %}
+        {% endfor %}
+    </ul>
+    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}" id="short-fiction">
+        Short Fiction
+    </h2>
+    <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">
+        {% for piece in page_type_data.short_fiction %}
+            {% include 'partials/shorts/_shorts-li.html' %}
+        {% endfor %}
+    </ul>
+    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}" id="poetry">
+        Poetry
+    </h2>
+    <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">
+        {% for piece in page_type_data.poetry %}
+            {% include 'partials/shorts/_shorts-li.html' %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock body %}
+{% block additional_js %}
+{% endblock additional_js %}

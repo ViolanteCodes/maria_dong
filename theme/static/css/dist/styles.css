@@ -725,24 +725,29 @@ select {
   z-index: 50;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
-.mx-8 {
-  margin-left: 2rem;
-  margin-right: 2rem;
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .mx-3 {
@@ -755,17 +760,24 @@ select {
   margin-bottom: 0px;
 }
 
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
 }
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mt-0 {
+  margin-top: 0px;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .mt-2 {
@@ -776,8 +788,28 @@ select {
   margin-top: 1rem;
 }
 
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
 }
 
 .block {
@@ -808,16 +840,16 @@ select {
   display: none;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .h-10 {
   height: 2.5rem;
 }
 
-.h-20 {
-  height: 5rem;
+.h-5\/6 {
+  height: 83.333333%;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .h-6 {
@@ -828,8 +860,16 @@ select {
   min-height: 0px;
 }
 
+.min-h-\[50vh\] {
+  min-height: 50vh;
+}
+
 .w-5\/6 {
   width: 83.333333%;
+}
+
+.w-4\/6 {
+  width: 66.666667%;
 }
 
 .w-10 {
@@ -848,16 +888,8 @@ select {
   width: 1.5rem;
 }
 
-.w-4\/6 {
-  width: 66.666667%;
-}
-
 .min-w-0 {
   min-width: 0px;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
 }
 
 .shrink-0 {
@@ -876,6 +908,14 @@ select {
   resize: both;
 }
 
+.list-none {
+  list-style-type: none;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -890,6 +930,10 @@ select {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
 }
 
 .justify-evenly {
@@ -941,11 +985,6 @@ select {
   border-color: rgb(192 38 211 / var(--tw-border-opacity));
 }
 
-.border-slate-100 {
-  --tw-border-opacity: 1;
-  border-color: rgb(241 245 249 / var(--tw-border-opacity));
-}
-
 .border-fuchsia-400 {
   --tw-border-opacity: 1;
   border-color: rgb(232 121 249 / var(--tw-border-opacity));
@@ -953,6 +992,15 @@ select {
 
 .border-opacity-75 {
   --tw-border-opacity: 0.75;
+}
+
+.bg-zinc-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(24 24 27 / var(--tw-bg-opacity));
+}
+
+.bg-purple-900\/25 {
+  background-color: rgb(88 28 135 / 0.25);
 }
 
 .bg-transparent {
@@ -973,6 +1021,11 @@ select {
   padding: 0.5rem;
 }
 
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -983,19 +1036,36 @@ select {
   padding-right: 1rem;
 }
 
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pb-16 {
+  padding-bottom: 4rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
 }
 
 .pt-2 {
@@ -1006,16 +1076,20 @@ select {
   padding-bottom: 0.5rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
 }
 
-.font-serif {
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-}
-
 .font-rocksalt {
   font-family: Rock Salt, sans-serif;
+}
+
+.font-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .font-robotoslab {
@@ -1031,14 +1105,9 @@ select {
   line-height: 1.75rem;
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .text-2xl {
@@ -1051,14 +1120,24 @@ select {
   line-height: 2.25rem;
 }
 
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .font-semibold {
@@ -1069,21 +1148,25 @@ select {
   font-weight: 500;
 }
 
-.leading-normal {
-  line-height: 1.5;
-}
-
 .leading-relaxed {
   line-height: 1.625;
+}
+
+.leading-normal {
+  line-height: 1.5;
 }
 
 .tracking-normal {
   letter-spacing: 0em;
 }
 
-.text-slate-100 {
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.text-fuchsia-500 {
   --tw-text-opacity: 1;
-  color: rgb(241 245 249 / var(--tw-text-opacity));
+  color: rgb(217 70 239 / var(--tw-text-opacity));
 }
 
 .text-amber-400 {
@@ -1091,9 +1174,9 @@ select {
   color: rgb(251 191 36 / var(--tw-text-opacity));
 }
 
-.text-fuchsia-500 {
+.text-slate-100 {
   --tw-text-opacity: 1;
-  color: rgb(217 70 239 / var(--tw-text-opacity));
+  color: rgb(241 245 249 / var(--tw-text-opacity));
 }
 
 .text-amber-300 {
@@ -1119,6 +1202,15 @@ select {
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.decoration-solid {
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
+}
+
+.decoration-from-font {
+  text-decoration-thickness: from-font;
 }
 
 .opacity-0 {
@@ -1184,6 +1276,11 @@ select {
           animation-fill-mode: forwards;
 }
 
+p a {
+  --tw-text-opacity: 1;
+  color: rgb(251 191 36 / var(--tw-text-opacity));
+}
+
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
@@ -1209,17 +1306,15 @@ select {
   grid-auto-rows: 1fr;
   grid-auto-columns: 1fr;
   grid-template-areas: 
-        "...  ...  ...  ...  ...  ...  ...  ..."
         "...  img  img  img  img  img  img  ..."
         "...  img  img  img  img  img  img  ..."
         "...  img  img  img  img  img  img  ..."
         "...  img  img  img  img  img  img  ..."
-        "...  ...  ...  ...  ...  ...  ...  ..."
         "sli  sli  sli  sli  sli  sli  sli  sli"
         "sli  sli  sli  sli  sli  sli  sli  sli"
         "sli  sli  sli  sli  sli  sli  sli  sli"
         "sli  sli  sli  sli  sli  sli  sli  sli"
-        "...  ...  ...  ...  ...  ...  ...  ..."
+        "sli  sli  sli  sli  sli  sli  sli  sli"
         "...  cta  cta  cta  cta  cta  cta  ..."
         "...  ...  ...  ...  ...  ...  ...  ...";
 }
@@ -1245,30 +1340,26 @@ select {
 
 .landing-layout {
     grid-template-areas: 
-            "...  ...  ...  ...  ...  ...  ...  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  img  img  img  img  img  img  ..."
-            "...  ...  ...  ...  ...  ...  ...  ..."
-            "sli  sli  sli  sli  sli  sli  sli  sli"
-            "sli  sli  sli  sli  sli  sli  sli  sli"
-            "sli  sli  sli  sli  sli  sli  sli  sli"
-            "sli  sli  sli  sli  sli  sli  sli  sli"
-            "...  ...  ...  ...  ...  ...  ...  ..."
-            "...  cta  cta  cta  cta  cta  cta  ..."
-            "...  ...  ...  ...  ...  ...  ...  ..."
+            "...  ...  ...  ...  ...  ...  ...  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "...  img  img  img  img  img  img  ... "
+            "sli  sli  sli  sli  sli  sli  sli  sli "
+            "sli  sli  sli  sli  sli  sli  sli  sli "
+            "sli  sli  sli  sli  sli  sli  sli  sli "
+            "sli  sli  sli  sli  sli  sli  sli  sli "
+            "...  cta  cta  cta  cta  cta  cta  ... "
+            "...  ...  ...  ...  ...  ...  ...  ... "
 }
   }
 
-@media (min-width: 1024px) {
-
-.landing-layout {
-    grid-template-areas:
+/* @media (min-width: 1024px) {
+        grid-template-areas:
             "...  ...  ...  ...  ...  ...  ...  .... ...  ... "
             "img  img  img  img  sli  sli  sli  sli  sli  sli "
             "img  img  img  img  sli  sli  sli  sli  sli  sli "      
@@ -1279,24 +1370,21 @@ select {
             "img  img  img  img  sli  sli  sli  sli  sli  sli "      
             "img  img  img  img  ...  ...  ...  ...  ...  ... "      
             "img  img  img  img  cta  cta  cta  cta  cta  cta "
-            "...  ...  ...  ...  ...  ...  ...  .... ...  ... "
-}
-  }
+            "...  ...  ...  ...  ...  ...  ...  .... ...  ... ";
+    } */
 
 @media (min-width: 1200px) {
 
 .landing-layout {
     grid-template-areas:
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
+            "img  img  img  img  img  cta  cta  cta  cta  cta  cta "      
             "...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... "
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  sli  sli  sli  sli  sli  sli "      
-            "img  img  img  img  img  ...  ...  ...  ...  ...  ... "      
-            "img  img  img  img  img  cta  cta  cta  cta  cta  cta "
             "...  ...  ...  ...  ...  ...  ...  .... ...  ...  ... "
 }
   }
@@ -1364,6 +1452,33 @@ select {
   flex-wrap: wrap;
 }
 
+.fieldwrapper textarea {
+  background-color: rgba(3, 3, 3, 0.8);
+  border: 5px dashed #d41dda;
+  max-width: 80vw;
+  font-size: 10px;
+}
+
+@media (min-width: 1200px) {
+
+.fieldwrapper textarea {
+    font-size: 40px
+}
+  }
+
+.fieldwrapper input {
+  background-color: rgba(3, 3, 3, 0.8);
+  border: 5px dashed #d41dda;
+  font-size: 10px;
+}
+
+@media (min-width: 1200px) {
+
+.fieldwrapper input {
+    font-size: 40px
+}
+  }
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -1423,6 +1538,11 @@ select {
 }
 
 @media (min-width: 640px) {
+  .sm\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .sm\:ml-12 {
     margin-left: 3rem;
   }
@@ -1439,8 +1559,8 @@ select {
     margin-left: 2rem;
   }
 
-  .sm\:mr-auto {
-    margin-right: auto;
+  .sm\:mb-4 {
+    margin-bottom: 1rem;
   }
 
   .sm\:mt-auto {
@@ -1449,10 +1569,6 @@ select {
 
   .sm\:mb-auto {
     margin-bottom: auto;
-  }
-
-  .sm\:ml-6 {
-    margin-left: 1.5rem;
   }
 
   .sm\:block {
@@ -1467,22 +1583,9 @@ select {
     width: 66.666667%;
   }
 
-  .sm\:items-stretch {
-    align-items: stretch;
-  }
-
-  .sm\:justify-end {
-    justify-content: flex-end;
-  }
-
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-  }
-
-  .sm\:py-4 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
   }
 
   .sm\:text-2xl {
@@ -1497,19 +1600,19 @@ select {
 }
 
 @media (min-width: 768px) {
-  .md\:mx-8 {
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-
-  .md\:my-10 {
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+  .md\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .md\:my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  .md\:mx-8 {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 
   .md\:ml-16 {
@@ -1520,24 +1623,44 @@ select {
     margin-right: 4rem;
   }
 
+  .md\:mt-16 {
+    margin-top: 4rem;
+  }
+
+  .md\:mt-8 {
+    margin-top: 2rem;
+  }
+
+  .md\:mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .md\:mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
   .md\:h-16 {
     height: 4rem;
   }
 
-  .md\:h-24 {
-    height: 6rem;
+  .md\:w-4\/6 {
+    width: 66.666667%;
   }
 
   .md\:w-16 {
     width: 4rem;
   }
 
-  .md\:basis-3\/6 {
-    flex-basis: 50%;
+  .md\:basis-2\/6 {
+    flex-basis: 33.333333%;
   }
 
   .md\:basis-4\/6 {
     flex-basis: 66.666667%;
+  }
+
+  .md\:basis-3\/6 {
+    flex-basis: 50%;
   }
 
   .md\:flex-row {
@@ -1553,9 +1676,18 @@ select {
     line-height: 1.75rem;
   }
 
+  .md\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .md\:leading-relaxed {
+    line-height: 1.625;
   }
 }
 
@@ -1593,18 +1725,21 @@ select {
     margin-right: 1.5rem;
   }
 
-  .lg\:my-12 {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
-
-  .lg\:my-16 {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+  .lg\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .lg\:mb-4 {
     margin-bottom: 1rem;
+  }
+
+  .lg\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
+  .lg\:mb-8 {
+    margin-bottom: 2rem;
   }
 
   .lg\:h-10 {
@@ -1613,6 +1748,10 @@ select {
 
   .lg\:w-10 {
     width: 2.5rem;
+  }
+
+  .lg\:max-w-screen-md {
+    max-width: 768px;
   }
 
   .lg\:justify-center {
@@ -1624,9 +1763,9 @@ select {
     padding-right: 2rem;
   }
 
-  .lg\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  .lg\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .lg\:pt-4 {
@@ -1647,6 +1786,11 @@ select {
     line-height: 2.25rem;
   }
 
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
   .lg\:leading-loose {
     line-height: 2;
   }
@@ -1654,15 +1798,27 @@ select {
   .lg\:leading-10 {
     line-height: 2.5rem;
   }
+
+  .lg\:leading-relaxed {
+    line-height: 1.625;
+  }
 }
 
 @media (min-width: 1280px) {
-  .xl\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+  .xl\:mt-16 {
+    margin-top: 4rem;
   }
 
-  .xl\:leading-10 {
+  .xl\:mb-10 {
+    margin-bottom: 2.5rem;
+  }
+
+  .xl\:mb-12 {
+    margin-bottom: 3rem;
+  }
+
+  .xl\:text-4xl {
+    font-size: 2.25rem;
     line-height: 2.5rem;
   }
 }

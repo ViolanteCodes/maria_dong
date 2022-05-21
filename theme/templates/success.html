@@ -1,0 +1,17 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block extra_seo %}
+{% endblock extra_seo %}
+
+{% block body_classes %}
+leading-relaxed text-lg md:text-xl lg:text-2xl mb-4
+{% endblock body_classes %}
+{% block body %}
+<div id="header-box">
+    <h1 class="{% include 'partials/components/_h1.html' %}">Thanks! Your Email has been sent.</h1>
+</div>
+
+{% endblock body %}
+{% block additional_js %}
+{% endblock additional_js %}
