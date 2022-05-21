@@ -25,11 +25,11 @@ text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed lg:leading-rel
     <p>
        Links to audio recordings and reviews provided where available, or you can 
        jump down to one of the following categories: 
-       <a href="">Essays</a>,
-       <a href="">Short Fiction</a>, or
-       <a href="">Poetry</a>.
+       <a href="#essays">Essays</a>,
+       <a href="#short-fiction">Short Fiction</a>, or
+       <a href="#poetry">Poetry</a>.
    </p>
-    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}">
+    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}" id="essays">
         Essays
     </h2>
     <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">
@@ -37,7 +37,7 @@ text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed lg:leading-rel
             {% include 'partials/shorts/_shorts-li.html' %}
         {% endfor %}
     </ul>
-    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}">
+    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}" id="short-fiction">
         Short Fiction
     </h2>
     <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">
@@ -45,7 +45,7 @@ text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed lg:leading-rel
             {% include 'partials/shorts/_shorts-li.html' %}
         {% endfor %}
     </ul>
-    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}">
+    <h2 class="{% include 'partials/shorts/_shorts-h2.html' %}" id="poetry">
         Poetry
     </h2>
     <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">

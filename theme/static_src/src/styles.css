@@ -18,6 +18,9 @@
     animation: fade-in 6s ease-out 1;
     animation-fill-mode: forwards;
 }
+p a {
+    @apply text-amber-400
+}
 @keyframes fade-in {
     0% {
       opacity: 0;
