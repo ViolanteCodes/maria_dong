@@ -64,10 +64,10 @@ leading-relaxed text-lg md:text-xl lg:text-2xl mb-4
         </div>
     </div>
 </div>
-<h2 class="bg-purple-900/25 text-center pt-20 pb-16 mb-0 text-3xl font-rocksalt text-amber-400">
-    Drop Maria a Message!
+<h2 class="bg-purple-900/25 text-center px-4 pt-20 pb-16 mb-0 text-3xl font-rocksalt text-amber-400">
+    Reach out to Maria on social!
 </h2>
-<div class="w-100 flex flex-col mt-0 mb-4 py-4 bg-purple-900/25 pb-20">
+<div class="w-100 flex flex-col mt-0 mb-4 py-4 bg-purple-900/25 pb-20 px-4">
    <ul class="flex flex-row justify-evenly w-6/6 md:w-4/6 md:mx-auto">
        {% for icon in page_data.social_icons %}
        <li>
@@ -83,6 +83,9 @@ leading-relaxed text-lg md:text-xl lg:text-2xl mb-4
        </li>
        {% endfor %}
    </ul>
+   <h2 class="text-center mt-10 text-3xl font-rocksalt text-amber-400">
+    ...Or send Maria an email.
+    </h2>
    {% include 'partials/contact_form/_contact-form.html' %}
 </div>
 

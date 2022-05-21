@@ -44,12 +44,12 @@
             <label 
                 for "{{form.dong_field.id_for_label}}"
                 class="{% include 'partials/contact_form/_form-label.html' %}"
-            >Verify you're not a bot by entering my last name in the box.</label>
+            >Verify you're not a bot by entering Maria's last name in the box.</label>
         </p>
-        <p class="fieldwrapper email-card">{{form.dong_field}}</p>
+        <p class="{% include 'partials/contact_form/_field-wrapper.html' %}">{{form.dong_field}}</p>
     </div>
     <div class="form-actions {% include 'partials/contact_form/_field-wrapper.html' %}">
-    <button type="submit" class="{% include 'partials/books/_buy-link.html' %}">Send</button>
+    <button type="submit" class="{% include 'partials/contact_form/_send-button.html' %}">Send</button>
     </div>
 </form>
 </div>
