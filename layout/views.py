@@ -69,7 +69,6 @@ class ButterMixin:
         """Fetch a page from butter"""
         if page_slug is not None:
             page_data = Butter.pages.get(page_type, page_slug, params)['data']['fields']
-            pp.pprint(page_data)
             return page_data
 
     def get_page_type(self, page_type='*', preview='0', params={}):
@@ -86,7 +85,6 @@ class ButterMixin:
         if page_type=='short':
             sorted_pieces = self.sort_pieces(pieces=page_type_data)
             return sorted_pieces
-        pp.pprint(page_type_data)
         return page_type_data
 
     def sort_pieces(self, pieces=[]):
