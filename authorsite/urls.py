@@ -5,20 +5,23 @@ from layout.views import ButterPageView, ContactFormView
 
 urlpatterns = [
     path('', ButterPageView.as_view(template_name="landing_page.html"),
-        kwargs={'page_slug': 'landing-page'}, name="home"),
+        {'page_slug': 'landing-page'}, name="home"),
     path('link-tree/', ButterPageView.as_view(template_name="links_page.html"),
-        kwargs={'page_slug': 'link-tree'}, name="link_tree"),
+        {'page_type':'links_page', 'page_slug': 'link-tree'}, name="link_tree"),
+    path('tiktok/<tiktok_slug>/', ButterPageView.as_view(template_name="links_page.html"),
+        {'page_type': 'links_page'}, name="tik_tok"),
     path('about/', ContactFormView.as_view(template_name="about.html"),
-        kwargs={'page_slug': 'about'}, name="about"),
+        {'page_slug': 'about'}, name="about"),
     path('about/success/', ButterPageView.as_view(template_name="success.html"),
-        kwargs={'page_slug': 'success'}, name="sucess"),
+        {'page_slug': 'success'}, name="sucess"),
     path('books/', ButterPageView.as_view(template_name="books_list.html"), 
-        kwargs={'page_slug': 'books'}, name="books_list"), 
+        {'page_slug': 'books'}, name="books_list"), 
     path('books/<page_slug>/', ButterPageView.as_view(template_name='book_detail.html'),
-        name="book_page"),
+        {'page_type': 'book', 'get_page_list': True}, name="book_page"),
     path('publications/', ButterPageView.as_view(template_name='shorts.html'), 
-        kwargs={
-            'page_slug':'publications', 'page_type':'short', 
+        {
+            'page_slug':'publications', 
+            'page_type_list':'short', 
             'params': {
                 'page_size':'30',
                 'order':'-publication_date',

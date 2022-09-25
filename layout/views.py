@@ -47,12 +47,27 @@ class ButterMixin:
                 'levels': '3',
             }
         # fetch page_data
-        if page_slug is not None:
-            page_data = self.get_page(page_slug=page_slug, params=params)
-            context['page_data'] = page_data
+        page_slug = None
+        if 'page_slug' in self.kwargs:
+            page_slug = self.kwargs['page_slug']
+        if 'tiktok_slug' in self.kwargs:
+            page_slug = f"tiktok-{self.kwargs['tiktok_slug']}"
+            print(f"PAGE SLUG: {page_slug}")
         if 'page_type' in self.kwargs:
             page_type = self.kwargs['page_type']
-            page_type_data = self.get_page_type(page_type=page_type, params=params)
+        else:
+            page_type = '*'
+        # Convert page slugs for special links pages
+
+        page_data = self.get_page(
+            page_type=page_type, page_slug=page_slug, params=params
+        )
+        context['page_data'] = page_data
+
+        # optional page_type_list to grab associated pages for shorts, etc.
+        if 'page_type_list' in self.kwargs:
+            page_type_list = self.kwargs['page_type_list']
+            page_type_data = self.get_page_type(page_type=page_type_list, params=params)
             context['page_type_data'] = page_type_data
         return context
 
@@ -67,9 +82,11 @@ class ButterMixin:
 
     def get_page(self, page_type='*', page_slug=None, params={}):
         """Fetch a page from butter"""
-        if page_slug is not None:
-            page_data = Butter.pages.get(page_type, page_slug, params)['data']['fields']
-            return page_data
+        print(page_type)
+        print(page_slug)
+        page_data = Butter.pages.get(page_type, page_slug, params)['data']['fields']
+        print(page_data)
+        return page_data
 
     def get_page_type(self, page_type='*', preview='0', params={}):
         """Fetch a page type from butter"""
@@ -82,7 +99,7 @@ class ButterMixin:
                 'levels': '3',
             }
         page_type_data = Butter.pages.all(page_type, params)['data']
-        if page_type=='short':
+        if page_type == 'short':
             sorted_pieces = self.sort_pieces(pieces=page_type_data)
             return sorted_pieces
         return page_type_data

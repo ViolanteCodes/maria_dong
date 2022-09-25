@@ -912,6 +912,10 @@ select {
   list-style-type: none;
 }
 
+.list-disc {
+  list-style-type: disc;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -1202,6 +1206,11 @@ select {
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.decoration-amber-400 {
+  -webkit-text-decoration-color: #fbbf24;
+          text-decoration-color: #fbbf24;
 }
 
 .decoration-solid {
