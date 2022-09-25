@@ -63,6 +63,23 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
             </li>
             {% endif %}
         </ul>
+        {% if page_data.extras %}
+        <h3 class="text-center my-4 text-xl lg:text-2xl font-rocksalt text-fuchsia-500">
+            Extras
+        </h3>
+        <ul id="extras" class="w-100 mx-8 my-4 list-disc">
+            {% for extra in page_data.extras %}
+            <li>
+                <a 
+                    href="{{ extra.url }}" 
+                    class="text-amber-400 decoration-solid decoration-amber-400"
+                    target="_blank"
+                ><strong>{{ extra.display_text }}</strong></a>:
+                {{ extra.description|safe }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
     <div id="right-column"
         class="flex flex-col md:basis-3/6">
