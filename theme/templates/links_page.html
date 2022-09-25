@@ -4,17 +4,21 @@
 {% block body_classes %}
 {% endblock %}
 {% block body %}
-<h1 class="{% include 'partials/components/_h1.html' %}">Quick Links</h1>
+<h1 
+    class="{% include 'partials/components/_h1.html' %}"
+>{% if page_data.title %}{{ page_data.title }}{% else %}Quick Links{% endif %}</h1>
 <ul class="h-5/6 flex flex-col justify-around min-h-[50vh] mt-8 md:mt-16 l:mt-24">
 {% for link in page_data.links %}
 <li>
+    {% if link.url %}
     <a 
         href="{{ link.url }}"
         target="_blank"
         class="{% include 'partials/link_tree/_link-tree-button.html' %}"
-    >
+    >    
         {{ link.display_text }}
     </a>
+    {% endif %}
 </li>
 {% endfor %}
 </ul>
