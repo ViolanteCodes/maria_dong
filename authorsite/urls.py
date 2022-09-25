@@ -6,7 +6,7 @@ from layout.views import ButterPageView, ContactFormView
 urlpatterns = [
     path('', ButterPageView.as_view(template_name="landing_page.html"),
         kwargs={'page_slug': 'landing-page'}, name="home"),
-    path('link-tree/', ButterPageView.as_view(template_name="link_tree.html"),
+    path('link-tree/', ButterPageView.as_view(template_name="links_page.html"),
         kwargs={'page_slug': 'link-tree'}, name="link_tree"),
     path('about/', ContactFormView.as_view(template_name="about.html"),
         kwargs={'page_slug': 'about'}, name="about"),
