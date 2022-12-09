@@ -83,6 +83,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
     </div>
     <div id="right-column"
         class="flex flex-col md:basis-3/6">
+        {% comment %}
         {% if page_data.featured_in %}
         <h2 class="text-center my-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
             As seen on
@@ -98,6 +99,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
             </p>
         </div>
         {% endif %}
+        {% endcomment %}
         <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-fuchsia-500">
             Description
         </h2>
