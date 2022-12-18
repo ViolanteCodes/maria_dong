@@ -908,12 +908,12 @@ select {
   resize: both;
 }
 
-.list-none {
-  list-style-type: none;
-}
-
 .list-disc {
   list-style-type: disc;
+}
+
+.list-none {
+  list-style-type: none;
 }
 
 .flex-row {
@@ -1783,6 +1783,14 @@ p a {
 
   .lg\:pb-4 {
     padding-bottom: 1rem;
+  }
+
+  .lg\:pt-16 {
+    padding-top: 4rem;
+  }
+
+  .lg\:pb-8 {
+    padding-bottom: 2rem;
   }
 
   .lg\:text-2xl {
