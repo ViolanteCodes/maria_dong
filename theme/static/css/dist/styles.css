@@ -1160,6 +1160,14 @@ select {
   line-height: 1.5;
 }
 
+.leading-loose {
+  line-height: 2;
+}
+
+.leading-snug {
+  line-height: 1.375;
+}
+
 .tracking-normal {
   letter-spacing: 0em;
 }
@@ -1208,14 +1216,29 @@ select {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .decoration-amber-400 {
   -webkit-text-decoration-color: #fbbf24;
           text-decoration-color: #fbbf24;
 }
 
+.decoration-white {
+  -webkit-text-decoration-color: #fff;
+          text-decoration-color: #fff;
+}
+
 .decoration-solid {
   -webkit-text-decoration-style: solid;
           text-decoration-style: solid;
+}
+
+.decoration-dotted {
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
 }
 
 .decoration-from-font {
@@ -1592,6 +1615,10 @@ p a {
     width: 66.666667%;
   }
 
+  .sm\:w-5\/6 {
+    width: 83.333333%;
+  }
+
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -1793,6 +1820,14 @@ p a {
     padding-bottom: 2rem;
   }
 
+  .lg\:pt-8 {
+    padding-top: 2rem;
+  }
+
+  .lg\:pt-12 {
+    padding-top: 3rem;
+  }
+
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -1805,6 +1840,16 @@ p a {
 
   .lg\:text-7xl {
     font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
     line-height: 1;
   }
 

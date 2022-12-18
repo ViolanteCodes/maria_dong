@@ -25,7 +25,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
 <div id="two-column-container" class="w-100 flex flex-col md:flex-row">
     <div 
         id="left-column"
-        class="flex flex-col md:basis-3/6">
+        class="flex flex-col md:basis-2/6">
         <img 
             src="{{ page_data.main_cover_image }}" 
             alt="Cover image for {{page_data.title}}" 
@@ -49,7 +49,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
             <li>
                 <a 
                     href="{{ link.buy_url }}"
-                    class="{% include 'partials/books/_buy-link.html' %}"
+                    class="{% include 'partials/books/_buy-link.html' %} font-robotoslab"
                 >{{ link.retailer_name}}</a>
             </li>
             {% endfor %}
@@ -58,76 +58,82 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
             <li>
                 <a 
                     href="{{ page_data.goodreads_link }}"
-                    class="{% include 'partials/books/_buy-link.html' %}"
+                    class="{% include 'partials/books/_buy-link.html' %} font-robotoslab"
                 >Add on Goodreads</a>
             </li>
             {% endif %}
         </ul>
-        {% if page_data.extras %}
-        <h3 class="text-center my-4 text-xl lg:text-2xl font-rocksalt text-fuchsia-500">
-            Extras
-        </h3>
-        <ul id="extras" class="w-100 mx-8 my-4 list-disc">
-            {% for extra in page_data.extras %}
-            <li>
-                <a 
-                    href="{{ extra.url }}" 
-                    class="text-amber-400 decoration-solid decoration-amber-400"
-                    target="_blank"
-                ><strong>{{ extra.display_text }}</strong></a>:
-                {{ extra.description|safe }}
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+        
     </div>
     <div id="right-column"
-        class="flex flex-col md:basis-3/6">
-        {% comment %}
-        {% if page_data.featured_in %}
-        <h2 class="text-center my-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
-            As seen on
-        </h2>
-        <div 
-            id="recommended-by"
-            class="w-5/6 mx-auto my-2 font-rocksalt text-center"
-        >
-            <p>
-                {% for featured in page_data.featured_in %}
-                {{ featured.venue }}{% if not forloop.last %}
-                    <span class="font-robotoslab">*</span> {% endif %}{% endfor %}.
-            </p>
-        </div>
-        {% endif %}
-        {% endcomment %}
+        class="flex flex-col md:basis-4/6">
         <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-fuchsia-500">
             Description
         </h2>
         <div 
             id="book-description"
-            class="w-5/6 mx-auto my-2"
+            class="w-5/6 mx-auto my-2 leading-normal"
         >
             {{ page_data.description|safe }}
         </div>
     </div>
 </div>
-{% if page_data.blurbs %}
-<h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
-    Praise
+{% if page_data.featured_in %}
+<h2 class="text-center my-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
+    As featured in
 </h2>
-<ul 
-    id="blurb-cards"
-    class="flex flex-col block"
+<div 
+    id="recommended-by"
+    class="w-5/6 mx-auto my-2 text-center"
 >
-    {% for blurb in page_data.blurbs %}
-    <li class="book-blurb-card w-5/6 mx-auto my-4">
-        <p>“{{ blurb.long_blurb }}”</p>
-        <p class="mt-2">—<span class="font-rocksalt text-amber-400">{{ blurb.attribution_name}}</span>, 
-            {{ blurb.attribution_description }} 
-            <span class="font-rocksalt text-amber-400">{{ blurb.attribution_book }}</span></p>
-    </li>
-    {% endfor %}
-</ul>
+    <p>
+        {% for featured in page_data.featured_in %}
+            <a 
+                href="{{featured.link}}" 
+                target="_blank" 
+                class="text-white underline decoration-white"
+            >{{ featured.venue }}</a>
+            {% if not forloop.last %}
+                <span class="font-robotoslab">*</span> 
+            {% endif %}
+        {% endfor %}
+    </p>
+</div>
+{% endif %}
+{% if page_data.extras %}
+    <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-fuchsia-500">
+        Extras
+    </h2>
+    <ul id="extras" class="mx-8 my-4 list-disc flex flex-col">
+        {% for extra in page_data.extras %}
+        <li class="w-5/6 mx-auto">
+            <a 
+                href="{{ extra.url }}" 
+                class="text-amber-400 decoration-solid decoration-amber-400"
+                target="_blank"
+            ><strong>{{ extra.display_text }}</strong></a>:
+            {{ extra.description|safe }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% if page_data.blurbs %}
+    <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
+        Praise
+    </h2>
+    <ul 
+        id="blurb-cards"
+        class="flex flex-col block"
+    >
+        {% for blurb in page_data.blurbs %}
+        <li class="book-blurb-card w-5/6 mx-auto my-4">
+            <p>“{{ blurb.long_blurb }}”</p>
+            <p class="mt-2">—<span class="font-rocksalt text-amber-400">{{ blurb.attribution_name}}</span>, 
+                {{ blurb.attribution_description }} 
+                <span class="font-rocksalt text-amber-400">{{ blurb.attribution_book }}</span></p>
+        </li>
+        {% endfor %}
+    </ul>
 {% endif %}
 {% endblock body %}
 {% block additional_js %}

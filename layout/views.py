@@ -34,7 +34,7 @@ class ButterMixin:
     def get_context_data(self, page_slug=None, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         # Get Menu
-        if 'main_menu' not in self.kwargs or self.kwargs['main_menu'] != false:
+        if 'main_menu' not in self.kwargs or self.kwargs['main_menu'] != False:
             main_menu = self.get_menu()
             context['nav_menu'] = main_menu
         # Get Params or set default
