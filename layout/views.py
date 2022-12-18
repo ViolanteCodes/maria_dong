@@ -50,9 +50,6 @@ class ButterMixin:
         page_slug = None
         if 'page_slug' in self.kwargs:
             page_slug = self.kwargs['page_slug']
-        if 'tiktok_slug' in self.kwargs:
-            page_slug = f"tiktok-{self.kwargs['tiktok_slug']}"
-            print(f"PAGE SLUG: {page_slug}")
         if 'page_type' in self.kwargs:
             page_type = self.kwargs['page_type']
         else:
@@ -82,10 +79,7 @@ class ButterMixin:
 
     def get_page(self, page_type='*', page_slug=None, params={}):
         """Fetch a page from butter"""
-        print(page_type)
-        print(page_slug)
         page_data = Butter.pages.get(page_type, page_slug, params)['data']['fields']
-        print(page_data)
         return page_data
 
     def get_page_type(self, page_type='*', preview='0', params={}):
