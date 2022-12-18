@@ -1,0 +1,36 @@
+{% extends 'base.html'  %}
+{% load static %}
+{% load event_extras %}
+
+{% block extra_seo %}
+{% endblock extra_seo %}
+
+{% block body_classes %}
+text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed lg:leading-relaxed mb-4
+{% endblock body_classes %}
+{% block body %}
+<div id="header-box">
+    <h1 class="{% include 'partials/components/_h1.html' %}">Upcoming Events</h1>
+</div>
+{% if page_data.events %}
+<div class="w-100 flex flex-col mt-4 py-4 px-4 font-robotoslab lg:max-w-screen-md lg:mx-auto">
+   <ul class="mb-4">
+    {% for event in page_data.events %}
+    <li>
+        <ul class="mb-8">
+            <li><i>{{event.date|format_datetime}} EST. &nbsp;</i>
+                {% if event.link %}<a 
+                href="{{event.link}}" 
+                target="_blank"
+                class="text-amber-400 underline"
+                >{% endif %}{{event.event_name}}{% if event.link %}</a>{% endif %}
+            </li>
+            {% if event.description %}<li>{{event.description|safe}}{% endif %}</li>
+            <li>{{event.location_name}}{% if event.location_address %}: <i>{{event.location_address}}</i>{% endif %}</li>
+        </ul>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endblock body %}
+{% block additional_js %}
+{% endblock additional_js %}

@@ -16,6 +16,8 @@ urlpatterns = [
         {'page_slug': 'books'}, name="books_list"), 
     path('books/<page_slug>/', ButterPageView.as_view(template_name='book_detail.html'),
         {'page_type': 'book', 'get_page_list': True}, name="book_page"),
+    path('events/', ButterPageView.as_view(template_name="events.html"),
+        {'page_slug':'events'}, name="events"),
     path('publications/', ButterPageView.as_view(template_name='shorts.html'), 
         {
             'page_slug':'publications', 
