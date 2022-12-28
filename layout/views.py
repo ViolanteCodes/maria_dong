@@ -157,10 +157,10 @@ class ContactFormView(ButterMixin, FormView):
         try:
             # send_mail(subject, message, from_email, [from_email], fail_silently=False)
             email = EmailMessage(
-                sender_subject,
-                message,
-                sender_email,
-                [from_email],
+                subject=sender_subject,
+                body=message,
+                from_email=from_email,
+                to=from_email
                 reply_to=[sender_email]
             )
             email.send()
