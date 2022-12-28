@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
@@ -155,7 +155,15 @@ class ContactFormView(ButterMixin, FormView):
         human = True
 
         try:
-            send_mail(subject, message, from_email, [from_email], fail_silently=False)
+            # send_mail(subject, message, from_email, [from_email], fail_silently=False)
+            email = EmailMessage(
+                sender_subject,
+                message,
+                sender_email,
+                [from_email],
+                reply_to=[sender_email]
+            )
+            email.send()
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return super().form_valid(form)
