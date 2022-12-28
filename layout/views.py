@@ -160,7 +160,7 @@ class ContactFormView(ButterMixin, FormView):
                 subject=sender_subject,
                 body=message,
                 from_email=from_email,
-                to=from_email,
+                to=[from_email],
                 reply_to=[sender_email]
             )
             email.send()
