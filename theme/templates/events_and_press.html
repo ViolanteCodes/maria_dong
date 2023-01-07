@@ -1,0 +1,76 @@
+{% extends 'base.html'  %}
+{% load static %}
+{% load event_extras %}
+
+{% block extra_seo %}
+{% endblock extra_seo %}
+
+{% block body_classes %}
+text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed lg:leading-relaxed mb-4
+{% endblock body_classes %}
+{% block body %}
+<div id="header-box">
+    <h1 class="{% include 'partials/components/_h1.html' %}">Events and Press</h1>
+</div>
+
+<h2 class="{% include 'partials/shorts/_shorts-h2.html' %}" id="events">Upcoming Events</h2>
+<div class="w-100 flex flex-col mt-4 py-4 px-4 font-robotoslab lg:max-w-screen-lg lg:mx-auto">
+    {% if page_data.events %}
+   <ul class="mb-4">
+    {% for event in page_data.events %}
+    <li>
+        <ul class="mb-8">
+            <li><i>{{event.date|format_datetime}} EST. &nbsp;</i>
+                {% if event.link %}<a 
+                href="{{event.link}}" 
+                target="_blank"
+                class="text-amber-400 underline"
+                >{% endif %}{{event.event_name}}{% if event.link %}</a>{% endif %}
+            </li>
+            {% if event.description %}<li>{{event.description|safe}}{% endif %}</li>
+            <li>{{event.location_name}}{% if event.location_address %}: <i>{{event.location_address}}</i>{% endif %}</li>
+        </ul>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>
+        No upcoming events! Sign up for the newsletter if you want be notified of upcoming events.
+    </p>
+    {% endif %}
+</div>
+
+<h2 class="{% include 'partials/shorts/_shorts-h2.html' %}" id="events">Previously Recorded</h2>
+<div class="w-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-4 py-4 px-4 font-robotoslab lg:max-w-screen-xl lg:mx-auto">
+    {% for recording in page_data.recorded_events %}
+        {% if recording.type == 'audio' %} 
+        <div class="flex flex-col justify-between mx-4 py-4 shadow-inner">
+            <div>
+                <a href="{{ recording.link }}" target="_blank" class="text-2xl">{{ recording.venue }}</a>
+                <p class="text-sm text-grey my-4">{{ recording.description }}</p>
+                
+            </div>
+            <audio controls>
+                <source src="{{ recording.file }}">
+            </audio>
+        </div>
+        {% endif %}
+
+        {% if recording.type == 'video' %} 
+        <div class="aspect-w-16 aspect-h-9 mx-4">
+            <iframe src="{{ recording.file }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>        
+        {% endif %}
+    {% endfor %}
+</div>
+    
+<h2 class="{% include 'partials/shorts/_shorts-h2.html' %}">Interviews and Articles About Maria</h2>
+
+<div class="w-100 flex flex-col mt-4 py-4 px-4 font-robotoslab lg:max-w-screen-lg lg:mx-auto">
+    <ul class="{% include 'partials/shorts/_shorts-ul.html' %}">
+        {% for article in page_data.interviews_and_articles %}
+            {% include 'partials/events/_articles_li.html' %}
+        {% endfor %}
+    </ul>
+{% endblock body %}
+{% block additional_js %}
+{% endblock additional_js %}

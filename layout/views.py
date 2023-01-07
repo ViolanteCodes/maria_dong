@@ -24,6 +24,10 @@ import pprint
 pp = pprint.PrettyPrinter(indent=2)
 # Create your views here.
 
+def convert_date(date):
+    converted_date = datetime.fromisoformat(date)
+    return converted_date
+
 class ButterMixin:
     """Mixin that provides access to all Butter Methods"""
 
@@ -108,10 +112,6 @@ class ButterMixin:
                 # Convert 'false' strings and empty lists to None for template
                 if field_value == 'false' or not field_value:
                     piece['fields'][field_key] = None
-                # convert isodate to python datetime object
-                if field_key == 'publication_date':
-                    pub_date = datetime.fromisoformat(field_value)
-                    piece['fields']['publication_date'] = pub_date
             piece_type = piece['fields']['piece_type']
             if piece_type == 'short-fiction':
                 short_fiction.append(piece['fields'])

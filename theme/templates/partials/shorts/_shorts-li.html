@@ -1,8 +1,9 @@
+{% load event_extras %}
 <li class="tracking-wider mb-8">
     {% if not piece.publication_date %}<em>(Pending Publication.)</em>{% endif %}
     {{ piece.title }}. <a href="{{ piece.piece_url }}" class="text-fuchsia-500">
     {{ piece.published_in }}{% if piece.issue %}, #{{ piece.issue }}{% endif %}</a>.
-    {% if piece.publication_date %}{{ piece.publication_date|date:"M d, Y" }}.{% endif %}
+    {% if piece.publication_date %}{{ piece.publication_date|format_date}}.{% endif %}
     {% if piece.word_count %}({{ piece.word_count|floatformat }} 
     words{% if piece.genre %}, {{ piece.genre|capfirst }}{% endif %}.){% endif %}
     {% if piece.audio_available_url %} <a href="{{ piece.audio_available_url }}"

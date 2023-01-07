@@ -1,0 +1,6 @@
+{% load event_extras %}
+<li class="tracking-wider mb-8">
+    {{ article.title }}. <a href="{{ article.article_url }}" class="text-fuchsia-500" target="_blank">
+    {{ article.published_in }}</a>.
+    {{ article.publication_date|format_date }}.
+</li>
