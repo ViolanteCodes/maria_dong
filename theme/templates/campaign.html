@@ -14,8 +14,12 @@ text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed lg:leading-rel
 </div>
 
 <div class="w-100 flex flex-col mt-4 py-4 px-4 font-robotoslab lg:max-w-screen-lg lg:mx-auto">
+    {% if page_data.campaign_status == "closed" %}
+        <p>This campaign is closed.</p>
+    {% else %}  
     {{ page_data.campaign_instructions|safe }}
     {% include 'partials/campaign_form/_campaign-form.html' %}
+    {% endif %}
 </div>
     
 {% endblock body %}
