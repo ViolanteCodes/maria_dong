@@ -1,0 +1,51 @@
+<div
+    class="w-100">
+    <form 
+        method="POST"
+        enctype="multipart/form-data"
+        class="flex flex-col justify-center items-center mt-4 md:mt-8 lg:mt-10 xl:mt-16"
+    >
+    {% csrf_token %}
+    <div class="{% include 'partials/contact_form/_field-wrapper.html' %}">
+        {{form.sender_name.errors}}
+        <label 
+            for "{{form.sender_name.id_for_label}}"
+            class="{% include 'partials/contact_form/_form-label.html' %}"
+        >Please enter your name.</label>
+        <p>{{form.sender_name}}</p>
+    </div>
+    <div class="{% include 'partials/contact_form/_field-wrapper.html' %}">
+        {{form.sender_email.errors}}
+        <label 
+            for "{{form.sender_email.id_for_label}}"
+            class="{% include 'partials/contact_form/_form-label.html' %}"
+        >Please enter a contact email address.</label>
+        <p>{{form.sender_email}}</p>
+    </div>
+    <div class="{% include 'partials/campaign_form/_file-submission-field-wrapper.html' %}">
+        {{form.image_field.errors}}
+        <label 
+            for "{{form.image_field.id_for_label}}"
+            class="{% include 'partials/contact_form/_form-label.html' %}"
+        >
+        Upload your screenshot here.</label>
+        <p>{{form.image_field}}</p>
+    </div>
+    <div class="{% include 'partials/contact_form/_field-wrapper.html' %}">
+        {{form.dong_field.errors}}
+        <p>
+            <label 
+                for "{{form.dong_field.id_for_label}}"
+                class="{% include 'partials/contact_form/_form-label.html' %}"
+            >Verify you're not a bot by entering Maria's last name in the box.</label>
+        </p>
+        <p class="{% include 'partials/contact_form/_field-wrapper.html' %}">{{form.dong_field}}</p>
+    </div>
+    <div>
+        <input type="hidden" name="campaign_name" value="{{ page_data.seo.title }}" id="id_campaign_name">
+    </div>
+    <div class="form-actions {% include 'partials/contact_form/_field-wrapper.html' %}">
+        <button type="submit" class="{% include 'partials/contact_form/_send-button.html' %}">Send</button>
+    </div>
+    </form>
+</div>
