@@ -1,0 +1,23 @@
+{% extends 'base.html'  %}
+{% load static %}
+{% load event_extras %}
+
+{% block extra_seo %}
+{% endblock extra_seo %}
+
+{% block body_classes %}
+text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed lg:leading-relaxed mb-4
+{% endblock body_classes %}
+{% block body %}
+<div id="header-box">
+    <h1 class="{% include 'partials/components/_h1.html' %}">{{page_data.seo.title}}</h1>
+</div>
+
+<div class="w-100 flex flex-col mt-4 py-4 px-4 font-robotoslab lg:max-w-screen-lg lg:mx-auto">
+    {{ page_data.campaign_instructions|safe }}
+    {% include 'partials/campaign_form/_campaign-form.html' %}
+</div>
+    
+{% endblock body %}
+{% block additional_js %}
+{% endblock additional_js %}

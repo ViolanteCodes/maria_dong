@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from layout.views import ButterPageView, ContactFormView
+from layout.views import ButterPageView, ContactFormView, CampaignFormView
 
 
 urlpatterns = [
@@ -11,7 +11,9 @@ urlpatterns = [
     path('about/', ContactFormView.as_view(template_name="about.html"),
         {'page_slug': 'about'}, name="about"),
     path('about/success/', ButterPageView.as_view(template_name="success.html"),
-        {'page_slug': 'success'}, name="sucess"),
+        {'page_slug': 'success'}, name="success"),
+    path('campaigns/<page_slug>/', CampaignFormView.as_view(template_name="campaign.html"),
+        {'page_type': 'campaign_page'}, name="campaign"),
     path('books/', ButterPageView.as_view(template_name="books_list.html"), 
         {'page_slug': 'books'}, name="books_list"), 
     path('books/<page_slug>/', ButterPageView.as_view(template_name='book_detail.html'),
