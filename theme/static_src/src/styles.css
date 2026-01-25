@@ -14,8 +14,29 @@
     font-family: "Roboto Slab";
     src: url('/static/fonts/RobotoSlab-Variable.ttf');
 }
-html, body {
+html {
   @apply bg-zinc-900;
+  min-height: 100vh;
+  /* Add the gradient to html as well */
+  background: rgb(77,7,114);
+  background: 
+    linear-gradient(
+      45deg, 
+      rgba(77,7,114,1) 0%, 
+      rgba(31,4,46,1) 10%, 
+      rgba(0,0,0,1) 30%, 
+      rgba(0,0,0,1) 69%, 
+      rgba(31,4,46,1) 90%, 
+      rgba(77,7,114,1) 100%
+    )
+    fixed;
+  /* Prevent overscroll on iOS/mobile */
+  overscroll-behavior: none;
+}
+body {
+  min-height: 100vh;
+  background: inherit; /* Inherit from html */
+  overscroll-behavior: none;
 }
 .hero-fade-in {
     animation: fade-in 6s ease-out 1;
