@@ -6,3 +6,4 @@ new install run
 python manage.py tailwind install
 
 after css changes python manage.py tailwind build
+and then collectstatic
