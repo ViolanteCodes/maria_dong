@@ -138,7 +138,6 @@ class CampaignViewMixin(ButterMixin):
         if "ul" in page_data["campaign_instructions"]:
             page_data["campaign_instructions"] = page_data["campaign_instructions"].replace("<ul>", '<ul class="list-disc">')
         return page_data
-
     
 class ButterPageView(ButterMixin, TemplateView):
     """Base Butter Page View"""

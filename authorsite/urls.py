@@ -32,7 +32,10 @@ urlpatterns = [
                 'order':'-publication_date',
                 }
             }, name="publications"),
-    path('newsletter/', RedirectView.as_view(url=newsletter_url), name="newsletter"),
+    # path('newsletter/', RedirectView.as_view(url=newsletter_url), name="newsletter"),
+    path('newsletter/', ButterPageView.as_view(template_name="newsletter.html"),
+        {'page_slug':'newsletter'},
+        name="newsletter"),
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
