@@ -1,7 +1,10 @@
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import RedirectView
 from layout.views import ButterPageView, ContactFormView, CampaignFormView
 
+newsletter_url = settings.NEWSLETTER_LANDING_PAGE
 
 urlpatterns = [
     path('', ButterPageView.as_view(template_name="landing_page.html"),
@@ -29,6 +32,7 @@ urlpatterns = [
                 'order':'-publication_date',
                 }
             }, name="publications"),
+    path('newsletter/', RedirectView.as_view(url=newsletter_url), name="newsletter"),
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
 ]

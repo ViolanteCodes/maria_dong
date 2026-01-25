@@ -21,6 +21,9 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
+#Newsletter
+NEWSLETTER_LANDING_PAGE = config('NEWSLETTER_LANDING_PAGE', default="https://authormariadong.eo.page/newsletter")
+
 # Application definition
 
 INSTALLED_APPS = [
