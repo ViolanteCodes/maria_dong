@@ -1,6 +1,6 @@
-from django.shortcuts import render
 from books.models import Book
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 
 # Create your views here.
 # path('books/<page_slug>/', ButterPageView.as_view(template_name='book_detail.html'),
@@ -9,3 +9,7 @@ from django.views.generic.detail import DetailView
 class BookView(DetailView):
     model = Book
     template_name = "book_detail.html"
+
+class BooksListView(ListView):
+    model = Book
+    template_name = "books_list.html"

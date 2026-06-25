@@ -31,6 +31,7 @@ class Book(models.Model):
     tags = models.ManyToManyField('books.Tag', blank=True)
     isbn = models.IntegerField(blank=True, null=True)
     seo_block = models.ForeignKey('seo.SEOBlock', blank=True, null=True, on_delete=models.PROTECT)
+    ordering = ["-publication_date"]
 
     def __str__(self):
         return self.title

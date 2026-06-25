@@ -5,6 +5,7 @@ from django.urls import path, include
 from django.views.generic.base import RedirectView
 from layout.views import ButterPageView, ContactFormView, CampaignFormView
 from books.views import BookView
+from books.views import BooksListView
 
 newsletter_url = settings.NEWSLETTER_LANDING_PAGE
 
@@ -19,8 +20,7 @@ urlpatterns = [
         {'page_slug': 'success'}, name="success"),
     path('campaigns/<page_slug>/', CampaignFormView.as_view(template_name="campaign.html"),
         {'page_type': 'campaign_page'}, name="campaign"),
-    path('books/', ButterPageView.as_view(template_name="books_list.html"), 
-        {'page_slug': 'books'}, name="books_list"), 
+    path('books/', BooksListView.as_view(), name="books_list"), 
     path('books/<slug:slug>/', BookView.as_view(), name="book_page"),
     path('events/', ButterPageView.as_view(template_name="events_and_press.html"),
         {'page_slug':'events-and-press'}, name="events"),
