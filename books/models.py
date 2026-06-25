@@ -20,6 +20,14 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+class FeatureLink(models.Model):
+    """Link class for 'Featured In' coverage"""
+    book = models.ForeignKey('books.Book', on_delete=models.CASCADE)
+    venue = models.CharField()
+    link = models.URLField()
+
+    def __str__(self):
+        return f"{self.book}: {self.venue}"
 
 # class SEOFields(models.Model):
 #     book = models.ForeignKey()
