@@ -16,6 +16,7 @@ class SEOBlock(models.Model):
     og_image = models.ImageField(blank=True)
     alt_text = models.TextField(blank=True)
     og_type = models.CharField(choices=OG_TYPE_CHOICES, max_length=20)
+    slug = models.CharField(blank=True)
 
     def __str__(self):
         return self.name
