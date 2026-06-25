@@ -11,6 +11,12 @@ class BookCover(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Tag(models.Model):
+    name = models.CharField()
+
+    def __str__(self):
+        return self.name
 
 class Book(models.Model):
     """Book"""
@@ -22,6 +28,8 @@ class Book(models.Model):
     publication_date = models.DateField(blank=True, null=True)
     publisher = models.CharField(blank=True)
     goodreads_link = models.URLField(blank=True)
+    tags = models.ManyToManyField('books.Tag', blank=True)
+    isbn = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.title

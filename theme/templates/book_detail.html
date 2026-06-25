@@ -2,15 +2,14 @@
 {% load static %}
 
 {% block extra_seo %}
-    {% if object.og_book.isbn %}
-    <meta property="book:isbn" content="{{ object.og_book.isbn }}">{% endif %}
+    {% if object.isbn %}
+    <meta property="book:isbn" content="{{ object.isbn }}">{% endif %}
     <meta property="book:author" content="Maria Dong">
-    {% if object.og_book.release_date %}
-    <meta property="book:release_date" content="{{ object.og_book.release_date }}">{% endif %}
-    {% if object.og_book.tags %}
-    {% for tag in object.og_book.tags %}
-    <meta property="book:tag" content="{{ tag.tag|safe }}">{% endfor %}
-    {% endif %}
+    {% if object.publication_date %}
+    <meta property="book:release_date" content="{{ object.publication_date }}">{% endif %}
+    {% for tag in object.tags.all %}
+    <meta property="book:tag" content="{{ tag }}">
+    {% endfor %}
 
 {% endblock extra_seo %}
 

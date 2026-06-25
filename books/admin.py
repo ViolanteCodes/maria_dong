@@ -4,6 +4,7 @@ from books.models import FeatureLink
 from books.models import PurchaseLink
 from books.models import Blurb
 from books.models import BookCover
+from books.models import Tag
 
 # Register your models here.
 admin.site.register(Book)
@@ -11,4 +12,5 @@ admin.site.register(BookCover)
 admin.site.register(FeatureLink)
 admin.site.register(PurchaseLink)
 admin.site.register(Blurb)
+admin.site.register(Tag)
 
