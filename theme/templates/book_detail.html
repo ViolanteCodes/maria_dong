@@ -79,7 +79,9 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
         </div>
     </div>
 </div>
-{% if object.featured_in %}
+
+{% with object.featurelink_set.all as feature_links %}
+{% if feature_links %}
 <h2 class="text-center my-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
     As featured in
 </h2>
@@ -88,7 +90,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
     class="w-5/6 mx-auto my-2 text-center"
 >
     <p>
-        {% for featured in object.featured_in %}
+        {% for featured in feature_links %}
             <a 
                 href="{{featured.link}}" 
                 target="_blank" 
@@ -101,6 +103,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
     </p>
 </div>
 {% endif %}
+{% endwith %}
 {% if object.extras %}
     <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-fuchsia-500">
         Extras
