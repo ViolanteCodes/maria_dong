@@ -4,13 +4,19 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 
     
+class BookCover(models.Model):
+    cover_image = models.ImageField(blank=True)
+    alt_text = models.TextField(blank=True)
+    name = models.CharField(blank=True)
+
+    def __str__(self):
+        return self.name
 
 class Book(models.Model):
     """Book"""
     title = models.CharField(blank=True)
     slug = models.SlugField(blank=True)
-    cover_image = models.ImageField(blank=True)
-    alt_text = models.TextField(blank=True)
+    cover_image = models.ForeignKey('books.BookCover', on_delete=models.PROTECT, blank=True, null=True)
     short_description = models.TextField(blank=True)
     long_description = RichTextField(blank=True)
     publication_date = models.DateField(blank=True, null=True)
@@ -50,6 +56,3 @@ class Blurb(models.Model):
 
     def __str__(self):
         return f"{self.book}: {self.attribution_name}"
-
-# class SEOFields(models.Model):
-#     book = models.ForeignKey()
