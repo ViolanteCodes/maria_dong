@@ -1,6 +1,15 @@
 {% extends 'base.html'  %}
 {% load static %}
 
+{% block seo %}
+<meta property="og:title" content="{{ page_data.seo.og_title|safe }}">
+<meta property="og:url" content="https://www.mariadong.com{{request.get_full_path}}">
+<meta property="og:image" content="{{ page_data.seo.og_image|safe }}">
+<meta property="og:site_name" content="MariaDong.Com">
+<meta property="og:description" content="{{ page_data.seo.og_description }}">
+<meta property="og:type" content="{{ page_data.seo.og_type }}">
+{% endblock seo %}
+
 {% block extra_seo %}
     {% if object.isbn %}
     <meta property="book:isbn" content="{{ object.isbn }}">{% endif %}
