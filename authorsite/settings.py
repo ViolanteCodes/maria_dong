@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # apps
     'layout',
     'books',
+    'seo',
 ]
 
 MIDDLEWARE = [
