@@ -1,5 +1,5 @@
-from django.conf import settings
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -12,7 +12,7 @@ class Book(models.Model):
     cover_image = models.ImageField(blank=True)
     alt_text = models.TextField(blank=True)
     short_description = models.TextField(blank=True)
-    long_description = models.TextField(blank=True)
+    long_description = RichTextField(blank=True)
     publication_date = models.DateField(blank=True, null=True)
     publisher = models.CharField(blank=True)
     goodreads_link = models.URLField(blank=True)
