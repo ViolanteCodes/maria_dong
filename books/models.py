@@ -38,6 +38,18 @@ class PurchaseLink(models.Model):
     def __str__(self):
         return f"{self.book}: {self.retailer_display_text}"
 
+class Blurb(models.Model):
+    book = models.ForeignKey('books.Book', on_delete=models.CASCADE)
+    attribution_name = models.CharField()
+    attribution_description = models.CharField(blank=True)
+    attribution_book = models.CharField(blank=True)
+    short_blurb = models.CharField(blank=True)
+    long_blurb = models.CharField(blank=True)
+    full_blurb = models.TextField(blank=True)
+    link = models.URLField(blank=True)
+
+    def __str__(self):
+        return f"{self.book}: {self.attribution_name}"
 
 # class SEOFields(models.Model):
 #     book = models.ForeignKey()
