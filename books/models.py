@@ -28,6 +28,16 @@ class FeatureLink(models.Model):
 
     def __str__(self):
         return f"{self.book}: {self.venue}"
+    
+class PurchaseLink(models.Model):
+    """Link class for purchases"""
+    book = models.ForeignKey('books.Book', on_delete=models.CASCADE)
+    retailer_display_text = models.CharField()
+    url = models.URLField()
+
+    def __str__(self):
+        return f"{self.book}: {self.retailer_display_text}"
+
 
 # class SEOFields(models.Model):
 #     book = models.ForeignKey()

@@ -45,16 +45,18 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
             id="buy-links"
             class="flex flex-col w-100 mx-8 my-4"
         >
-            {% if object.buy_links %}
-            {% for link in object.buy_links %}
+            {% with object.purchaselink_set.all as buy_links %}
+            {% if buy_links %}
+            {% for link in buy_links %}
             <li>
                 <a 
-                    href="{{ link.buy_url }}"
+                    href="{{ link.url }}"
                     class="{% include 'partials/books/_buy-link.html' %} font-robotoslab"
-                >{{ link.retailer_name}}</a>
+                >{{ link.retailer_display_text }}</a>
             </li>
             {% endfor %}
             {% endif %}
+            {% endwith %}
             {% if object.goodreads_link %}
             <li>
                 <a 
