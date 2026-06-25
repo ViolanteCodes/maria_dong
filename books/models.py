@@ -65,3 +65,13 @@ class Blurb(models.Model):
 
     def __str__(self):
         return f"{self.book}: {self.attribution_name}"
+
+class BookExtra(models.Model):
+    book = models.ForeignKey('books.Book', on_delete=models.CASCADE)
+    display_text = models.CharField()
+    url = models.URLField()
+    description = models.CharField()
+
+    def __str__(self):
+        return f"{self.book}: {self.display_text}"
+    

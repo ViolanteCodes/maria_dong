@@ -125,12 +125,13 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
 </div>
 {% endif %}
 {% endwith %}
-{% if object.extras %}
+{% with object.bookextra_set.all as extras %}
+{% if extras %}
     <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-fuchsia-500">
         Extras
     </h2>
     <ul id="extras" class="mx-8 my-4 list-disc flex flex-col">
-        {% for extra in object.extras %}
+        {% for extra in extras %}
         <li class="w-5/6 mx-auto">
             <a 
                 href="{{ extra.url }}" 
@@ -142,6 +143,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
         {% endfor %}
     </ul>
 {% endif %}
+{% endwith %}
 {% with object.blurb_set.all as blurbs %}
 {% if blurbs %}
     <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
