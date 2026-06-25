@@ -6,6 +6,7 @@ from django.views.generic.base import RedirectView
 from layout.views import ButterPageView, ContactFormView, CampaignFormView
 from books.views import BookView
 from books.views import BooksListView
+from shorts.views import ShortsListView
 
 newsletter_url = settings.NEWSLETTER_LANDING_PAGE
 
@@ -24,15 +25,7 @@ urlpatterns = [
     path('books/<slug:slug>/', BookView.as_view(), name="book_page"),
     path('events/', ButterPageView.as_view(template_name="events_and_press.html"),
         {'page_slug':'events-and-press'}, name="events"),
-    path('publications/', ButterPageView.as_view(template_name='shorts.html'), 
-        {
-            'page_slug':'publications', 
-            'page_type_list':'short', 
-            'params': {
-                'page_size':'30',
-                'order':'-publication_date',
-                }
-            }, name="publications"),
+    path('publications/', ShortsListView.as_view(), name="publications"),
     # path('newsletter/', RedirectView.as_view(url=newsletter_url), name="newsletter"),
     path('newsletter/', ButterPageView.as_view(template_name="newsletter.html"),
         {'page_slug':'newsletter'},
