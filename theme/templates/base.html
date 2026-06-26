@@ -14,7 +14,7 @@
 		<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
 
 		{% block seo %}
-		<meta property="og:title" content="{{ seo_block.title|safe }}">
+		<meta property="og:title" content="{{ seo_block.og_title|safe }}">
 		<meta property="og:url" content="https://www.mariadong.com{{request.get_full_path}}">
 		<meta property="og:image" content="{{ seo_block.og_image|safe }}">
 		<meta property="og:site_name" content="MariaDong.Com">

@@ -2,7 +2,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from layout.views import ButterPageView
 from books.views import BookView
 from books.views import BooksListView
 from shorts.views import ShortsListView
@@ -10,14 +9,14 @@ from press.views import PressView
 from about.views import AboutView
 from about.views import SuccessView
 from press.views import NewsletterView
+from linktree.views import LinkTreeView
+from layout.views import LandingView
 
 newsletter_url = settings.NEWSLETTER_LANDING_PAGE
 
 urlpatterns = [
-    path('', ButterPageView.as_view(template_name="landing_page.html"),
-        {'page_slug': 'landing-page'}, name="home"),
-    path('link-tree/', ButterPageView.as_view(template_name="links_page.html"),
-        {'page_type':'links_page', 'page_slug': 'link-tree'}, name="link_tree"),
+    path('', LandingView.as_view(), name="home"),
+    path('link-tree/', LinkTreeView.as_view(),name="link_tree"),
     path('about/', AboutView.as_view(), name="about"),
     path('about/success/', SuccessView.as_view(), name="success"),
     # path('campaigns/<page_slug>/', CampaignFormView.as_view(template_name="campaign.html"),

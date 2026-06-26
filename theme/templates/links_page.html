@@ -6,9 +6,9 @@
 {% block body %}
 <h1 
     class="{% include 'partials/components/_h1.html' %}"
->{% if page_data.title %}{{ page_data.title }}{% else %}Quick Links{% endif %}</h1>
+>{% if seo_block.title %}{{ seo_block.title }}{% else %}Quick Links{% endif %}</h1>
 <ul class="h-5/6 flex flex-col justify-around min-h-[50vh] mt-8 md:mt-16 l:mt-24">
-{% for link in page_data.links %}
+{% for link in object_list %}
 <li>
     {% if link.url %}
     <a 
