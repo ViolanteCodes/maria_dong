@@ -2,7 +2,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base import RedirectView
 from layout.views import ButterPageView
 from books.views import BookView
 from books.views import BooksListView
@@ -10,6 +9,7 @@ from shorts.views import ShortsListView
 from press.views import PressView
 from about.views import AboutView
 from about.views import SuccessView
+from press.views import NewsletterView
 
 newsletter_url = settings.NEWSLETTER_LANDING_PAGE
 
@@ -26,9 +26,7 @@ urlpatterns = [
     path('books/<slug:slug>/', BookView.as_view(), name="book_page"),
     path('events/', PressView.as_view(), name="events"),
     path('publications/', ShortsListView.as_view(), name="publications"),
-    path('newsletter/', ButterPageView.as_view(template_name="newsletter.html"),
-        {'page_slug':'newsletter'},
-        name="newsletter"),
+    path('newsletter/', NewsletterView.as_view(), name="newsletter"),
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
 ]

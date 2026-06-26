@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView
 from seo.mixins import SEOBlockMixin
 from press.models import PressArticle
@@ -18,3 +17,6 @@ class PressView(SEOBlockMixin, TemplateView):
         context["articles"] = PressArticle.objects.all()
         return context
 
+class NewsletterView(SEOBlockMixin, TemplateView):
+    seo_block_slug = "newsletter"
+    template_name = "newsletter.html"
