@@ -10,9 +10,7 @@ class SocialIcon(models.Model):
         return self.service_name
 
 class AboutPage(models.Model):
-    photo_name = models.CharField(blank=True)
-    photo = models.FileField(blank=True, null=True)
-    alt_text = models.CharField(blank=True)
+    photo = models.ForeignKey('images.Image', blank=True, null=True, on_delete=models.SET_NULL)
     photo_attribution = models.CharField(blank=True)
     photo_url = models.URLField(blank=True)
     makeup_attribution = models.CharField(blank=True)

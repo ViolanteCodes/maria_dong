@@ -3,15 +3,6 @@ from ckeditor.fields import RichTextField
 
 # Create your models here.
 
-    
-class BookCover(models.Model):
-    cover_image = models.ImageField(blank=True)
-    alt_text = models.TextField(blank=True)
-    name = models.CharField(blank=True)
-
-    def __str__(self):
-        return self.name
-    
 class Tag(models.Model):
     name = models.CharField()
 
@@ -22,7 +13,7 @@ class Book(models.Model):
     """Book"""
     title = models.CharField(blank=True)
     slug = models.SlugField(blank=True)
-    cover_image = models.ForeignKey('images.Image', on_delete=models.PROTECT, blank=True, null=True)
+    cover_image = models.ForeignKey('images.Image', on_delete=models.SET_NULL, blank=True, null=True)
     short_description = models.TextField(blank=True)
     long_description = RichTextField(blank=True)
     publication_date = models.DateField(blank=True, null=True)
@@ -30,7 +21,7 @@ class Book(models.Model):
     goodreads_link = models.URLField(blank=True)
     tags = models.ManyToManyField('books.Tag', blank=True)
     isbn = models.IntegerField(blank=True, null=True)
-    seo_block = models.ForeignKey('seo.SEOBlock', blank=True, null=True, on_delete=models.PROTECT)
+    seo_block = models.ForeignKey('seo.SEOBlock', blank=True, null=True, on_delete=models.SET_NULL)
     ordering = ["-publication_date"]
 
     def __str__(self):
