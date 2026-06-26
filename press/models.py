@@ -35,3 +35,6 @@ class PressArticle(models.Model):
     url = models.URLField(blank=True)
     publication_date = models.DateTimeField(blank=True, null=True)
     published_in = models.CharField(blank=True)
+
+    def __str__(self):
+        return self.title
