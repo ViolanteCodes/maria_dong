@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'books',
     'seo',
     'shorts',
+    'press',
 ]
 
 MIDDLEWARE = [
