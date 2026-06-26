@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'press',
     'about',
     'linktree',
+    'images',
 ]
 
 MIDDLEWARE = [
