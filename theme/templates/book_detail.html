@@ -1,26 +1,6 @@
 {% extends 'base.html'  %}
 {% load static %}
 
-{% if object.seo_block %}
-
-    {% block title %}<title>Maria Dong, Author | {{ object.seo_block.title }}</title>
-    {% endblock title %}
-
-    {% block description %}
-    <meta name="description" content="{{ object.seo_block.description }}">
-    {% endblock description %}
-
-    {% block seo %}
-    <meta property="og:title" content="{{ object.seo_block.title }}">
-    <meta property="og:url" content="https://www.mariadong.com{{request.get_full_path}}">
-    <meta property="og:image" content="{{ object.seo_block.cover_image.url }}">
-    <meta property="og:site_name" content="MariaDong.Com">
-    <meta property="og:description" content="{{ object.seo_block.og_description }}">
-    <meta property="og:type" content="{{ object.seo_block.og_type }}">
-    {% endblock seo %}
-
-{% endif %}
-
 {% block extra_seo %}
     {% if object.isbn %}
     <meta property="book:isbn" content="{{ object.isbn }}">{% endif %}

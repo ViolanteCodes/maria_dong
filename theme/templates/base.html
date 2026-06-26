@@ -16,7 +16,7 @@
 		{% block seo %}
 		<meta property="og:title" content="{{ seo_block.og_title|safe }}">
 		<meta property="og:url" content="https://www.mariadong.com{{request.get_full_path}}">
-		<meta property="og:image" content="{{ seo_block.og_image|safe }}">
+		<meta property="og:image" content="{{ seo_block.og_image.file.url }}">
 		<meta property="og:site_name" content="MariaDong.Com">
 		<meta property="og:description" content="{{ seo_block.og_description }}">
 		<meta property="og:type" content="{{ seo_block.og_type }}">
