@@ -22,7 +22,7 @@ class Book(models.Model):
     """Book"""
     title = models.CharField(blank=True)
     slug = models.SlugField(blank=True)
-    cover_image = models.ForeignKey('books.BookCover', on_delete=models.PROTECT, blank=True, null=True)
+    cover_image = models.ForeignKey('images.Image', on_delete=models.PROTECT, blank=True, null=True)
     short_description = models.TextField(blank=True)
     long_description = RichTextField(blank=True)
     publication_date = models.DateField(blank=True, null=True)

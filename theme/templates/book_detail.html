@@ -13,7 +13,7 @@
     {% block seo %}
     <meta property="og:title" content="{{ object.seo_block.title }}">
     <meta property="og:url" content="https://www.mariadong.com{{request.get_full_path}}">
-    <meta property="og:image" content="{{ object.cover_image.cover_image.url }}">
+    <meta property="og:image" content="{{ object.seo_block.cover_image.url }}">
     <meta property="og:site_name" content="MariaDong.Com">
     <meta property="og:description" content="{{ object.seo_block.og_description }}">
     <meta property="og:type" content="{{ object.seo_block.og_type }}">
@@ -46,7 +46,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
         id="left-column"
         class="flex flex-col md:basis-2/6">
         <img 
-            src="{{ object.cover_image.cover_image.url }}" 
+            src="{{ object.cover_image.file.url }}" 
             alt="Cover image for {{object.title}}" 
             id="cover"
             class="mx-auto my-4 shrink-1 w-5/6"
