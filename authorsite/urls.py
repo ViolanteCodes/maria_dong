@@ -7,6 +7,7 @@ from layout.views import ButterPageView, ContactFormView, CampaignFormView
 from books.views import BookView
 from books.views import BooksListView
 from shorts.views import ShortsListView
+from press.views import PressView
 
 newsletter_url = settings.NEWSLETTER_LANDING_PAGE
 
@@ -23,8 +24,7 @@ urlpatterns = [
         {'page_type': 'campaign_page'}, name="campaign"),
     path('books/', BooksListView.as_view(), name="books_list"), 
     path('books/<slug:slug>/', BookView.as_view(), name="book_page"),
-    path('events/', ButterPageView.as_view(template_name="events_and_press.html"),
-        {'page_slug':'events-and-press'}, name="events"),
+    path('events/', PressView.as_view(), name="events"),
     path('publications/', ShortsListView.as_view(), name="publications"),
     path('newsletter/', ButterPageView.as_view(template_name="newsletter.html"),
         {'page_slug':'newsletter'},
