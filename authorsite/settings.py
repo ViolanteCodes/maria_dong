@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'seo',
     'shorts',
     'press',
-    'about'
+    'about',
+    'linktree',
 ]
 
 MIDDLEWARE = [
