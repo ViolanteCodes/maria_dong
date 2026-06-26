@@ -1,7 +1,7 @@
 from seo.models import SEOBlock
 
 class SEOBlockMixin:
-    """Mixin that provides access to all Butter Methods"""
+    """Mixin adds an SEO Block to CBV context"""
 
     seo_block_slug = None
 
