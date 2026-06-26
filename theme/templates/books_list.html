@@ -5,14 +5,14 @@
 leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4 font-robotoslab
 {% endblock body_classes %}
 {% block body %}
-{% for book in page_data.books %}
+{% for book in object_list %}
 <div class="two-column-book-card w-100 flex flex-col md:flex-row">
     <div 
         id="left-column"
         class="flex flex-col md:basis-3/6">
         <img 
-            src="{{ book.fields.main_cover_image }}" 
-            alt="Cover image for {{book.fields.title}}" 
+            src="{{ book.cover_image.file.url }}" 
+            alt="{{ book.cover_image.alt_text }}" 
             id="cover"
             class="mx-auto my-4 shrink-1 w-4/6"
         >
@@ -21,7 +21,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4 font-roboto
         class="flex flex-col md:basis-3/6 justify-evenly">
         <div class="w-4/6 mx-auto my-4 md:my-8"
         >
-            {{ book.fields.short_description }}
+            {{ book.short_description }}
         </div>
         <a
             href="{% url 'book_page' book.slug %}"

@@ -14,31 +14,31 @@ leading-relaxed text-lg md:text-xl lg:text-2xl mb-4
 {% endblock body_classes %}
 {% block body %}
 <div id="header-box">
-    <h1 class="{% include 'partials/components/_h1.html' %}">{{ page_data.seo.title }}</h1>
+    <h1 class="{% include 'partials/components/_h1.html' %}">{{ seo_block.title }}</h1>
 </div>
 <div class="w-100 flex flex-col md:flex-row my-4 py-4">
     <div 
         class="flex flex-col md:basis-2/6 items-center">
         <img 
-            src="{{ page_data.author_photo.photo_url }}" 
-            alt="A smiling photo of author Maria Dong" 
+            src="{{ object.photo.file.url }}" 
+            alt="{{ object.alt_text }}" 
             class="mx-auto my-4 shrink-1 w-5/6"
         >
-        {% if page_data.author_photo.photographer_attribution %}
+        {% if object.photo_attribution %}
         <p class="text-center text-sm my-3 py-2 w-5/6 font-rocksalt bg-zinc-900">
             Photo by
-            <a href="{{page_data.author_photo.photographer_url}}" 
+            <a href="{{object.photo_url}}" 
                 class="decoration-solid decoration-from-font"
             >
-                {{ page_data.author_photo.photographer_attribution }}
+                {{ object.photo_attribution }}
             </a>
         </p>
         {% endif %}
-        {% if page_data.author_photo.makeup_attribution %}
+        {% if object.makeup_attribution %}
         <p class="text-center text-sm my-3 py-2 w-5/6 font-rocksalt bg-zinc-900">
             Hair and Makeup by  
-            <a href="{{page_data.author_photo.makeup_url}}">
-                {{ page_data.author_photo.makeup_attribution }}
+            <a href="{{object.makeup_url}}">
+                {{ object.makeup_attribution }}
             </a>
         </p>
         {% endif %}
@@ -51,7 +51,7 @@ leading-relaxed text-lg md:text-xl lg:text-2xl mb-4
         <div 
             class="w-5/6 mx-auto my-2 text-left"
         >
-            {{ page_data.short_biography|safe }}
+            {{ object.short_biography|safe }}
         </div>
         <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-fuchsia-500">
             Extended Biography
@@ -60,7 +60,7 @@ leading-relaxed text-lg md:text-xl lg:text-2xl mb-4
             id="book-description"
             class="w-5/6 mx-auto my-2 text-left"
         >
-            {{ page_data.long_biography|safe }}
+            {{ object.long_biography|safe }}
         </div>
     </div>
 </div>
@@ -69,14 +69,14 @@ leading-relaxed text-lg md:text-xl lg:text-2xl mb-4
 </h2>
 <div class="w-100 flex flex-col mt-0 mb-4 py-4 bg-purple-900/25 pb-20 px-4">
    <ul class="flex flex-row justify-evenly w-6/6 md:w-4/6 md:mx-auto">
-       {% for icon in page_data.social_icons %}
+       {% for icon in object.social_icons %}
        <li>
             <a 
-                aria-label="{{icon.alt_text}}"
+                aria-label="{{ icon.service_name }} icon"
                 class="text-fuchsia-500 text-5xl md:text-8xl"
                 href="{{icon.link}}"
                 target="_blank"
-                title="{{icon.alt_text}}"
+                title="{{ icon.service_name }} icon"
             >
                 <i class="{{icon.fa_abbreviation}}"></i>
             </a>

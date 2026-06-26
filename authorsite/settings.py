@@ -47,6 +47,13 @@ INSTALLED_APPS = [
 
     # apps
     'layout',
+    'books',
+    'seo',
+    'shorts',
+    'press',
+    'about',
+    'linktree',
+    'images',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'layout.context_processors.nav_menu'
             ],
         },
     },
@@ -145,7 +153,3 @@ INTERNAL_IPS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# ButterCMS
-BUTTER_TOKEN = config('BUTTER_TOKEN')
-

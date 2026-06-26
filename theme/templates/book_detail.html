@@ -2,15 +2,14 @@
 {% load static %}
 
 {% block extra_seo %}
-    {% if page_data.og_book.isbn %}
-    <meta property="book:isbn" content="{{ page_data.og_book.isbn }}">{% endif %}
+    {% if object.isbn %}
+    <meta property="book:isbn" content="{{ object.isbn }}">{% endif %}
     <meta property="book:author" content="Maria Dong">
-    {% if page_data.og_book.release_date %}
-    <meta property="book:release_date" content="{{ page_data.og_book.release_date }}">{% endif %}
-    {% if page_data.og_book.tags %}
-    {% for tag in page_data.og_book.tags %}
-    <meta property="book:tag" content="{{ tag.tag|safe }}">{% endfor %}
-    {% endif %}
+    {% if object.publication_date %}
+    <meta property="book:release_date" content="{{ object.publication_date }}">{% endif %}
+    {% for tag in object.tags.all %}
+    <meta property="book:tag" content="{{ tag }}">
+    {% endfor %}
 
 {% endblock extra_seo %}
 
@@ -20,44 +19,47 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
 
 {% block body %}
 <div id="header-box">
-    <h1 class="text-center text-xs font-rocksalt text-amber-400 opacity-0">{{ page_data.title }}</h1>
+    <h1 class="text-center text-xs font-rocksalt text-amber-400 opacity-0">{{ object.title }}</h1>
 </div>
 <div id="two-column-container" class="w-100 flex flex-col md:flex-row">
     <div 
         id="left-column"
         class="flex flex-col md:basis-2/6">
         <img 
-            src="{{ page_data.main_cover_image }}" 
-            alt="Cover image for {{page_data.title}}" 
+            src="{{ object.cover_image.file.url }}" 
+            alt="Cover image for {{object.title}}" 
             id="cover"
             class="mx-auto my-4 shrink-1 w-5/6"
         >
-        {% if page_data.coming_out_on %}
+
+        {% if object.publication_date %}
         <p class="text-center my-4 text-xl lg:text-2xl font-rocksalt text-amber-400">
-            Coming {{ page_data.coming_out_on }}
+            Coming {{ object.publication_date }}
         </p>
         <p class="text-center my-4 text-xl lg:text-2xl font-rocksalt text-amber-400">
-            From {{ page_data.coming_out_from }}
+            From {{ object.publisher }}
         </p>
         {% endif %}
         <ul 
             id="buy-links"
             class="flex flex-col w-100 mx-8 my-4"
         >
-            {% if page_data.buy_links %}
-            {% for link in page_data.buy_links %}
+            {% with object.purchaselink_set.all as buy_links %}
+            {% if buy_links %}
+            {% for link in buy_links %}
             <li>
                 <a 
-                    href="{{ link.buy_url }}"
+                    href="{{ link.url }}"
                     class="{% include 'partials/books/_buy-link.html' %} font-robotoslab"
-                >{{ link.retailer_name}}</a>
+                >{{ link.retailer_display_text }}</a>
             </li>
             {% endfor %}
             {% endif %}
-            {% if page_data.goodreads_link %}
+            {% endwith %}
+            {% if object.goodreads_link %}
             <li>
                 <a 
-                    href="{{ page_data.goodreads_link }}"
+                    href="{{ object.goodreads_link }}"
                     class="{% include 'partials/books/_buy-link.html' %} font-robotoslab"
                 >Add on Goodreads</a>
             </li>
@@ -74,11 +76,13 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
             id="book-description"
             class="w-5/6 mx-auto my-2 leading-normal"
         >
-            {{ page_data.description|safe }}
+            {{ object.long_description|safe }}
         </div>
     </div>
 </div>
-{% if page_data.featured_in %}
+
+{% with object.featurelink_set.all as feature_links %}
+{% if feature_links %}
 <h2 class="text-center my-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
     As featured in
 </h2>
@@ -87,7 +91,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
     class="w-5/6 mx-auto my-2 text-center"
 >
     <p>
-        {% for featured in page_data.featured_in %}
+        {% for featured in feature_links %}
             <a 
                 href="{{featured.link}}" 
                 target="_blank" 
@@ -100,12 +104,14 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
     </p>
 </div>
 {% endif %}
-{% if page_data.extras %}
+{% endwith %}
+{% with object.bookextra_set.all as extras %}
+{% if extras %}
     <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-fuchsia-500">
         Extras
     </h2>
     <ul id="extras" class="mx-8 my-4 list-disc flex flex-col">
-        {% for extra in page_data.extras %}
+        {% for extra in extras %}
         <li class="w-5/6 mx-auto">
             <a 
                 href="{{ extra.url }}" 
@@ -117,7 +123,9 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
         {% endfor %}
     </ul>
 {% endif %}
-{% if page_data.blurbs %}
+{% endwith %}
+{% with object.blurb_set.all as blurbs %}
+{% if blurbs %}
     <h2 class="text-center mt-8 mb-4 text-2xl lg:text-3xl font-rocksalt text-amber-400">
         Praise
     </h2>
@@ -125,7 +133,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
         id="blurb-cards"
         class="flex flex-col block"
     >
-        {% for blurb in page_data.blurbs %}
+        {% for blurb in blurbs %}
         <li class="book-blurb-card w-5/6 mx-auto my-4">
             <p class="leading-normal">“{{ blurb.long_blurb }}”</p>
             <p class="mt-2">—<span class="font-rocksalt text-amber-400">{{ blurb.attribution_name}}</span>{% if blurb.attribution_description %}, 
@@ -135,6 +143,7 @@ leading-relaxed lg:leading-loose text-lg md:text-xl lg:text-2xl mb-4
         {% endfor %}
     </ul>
 {% endif %}
+{% endwith %}
 {% endblock body %}
 {% block additional_js %}
 {% endblock additional_js %}
