@@ -8,6 +8,8 @@ from books.views import BookView
 from books.views import BooksListView
 from shorts.views import ShortsListView
 from press.views import PressView
+from about.views import AboutView
+from about.views import SuccessView
 
 newsletter_url = settings.NEWSLETTER_LANDING_PAGE
 
@@ -16,10 +18,8 @@ urlpatterns = [
         {'page_slug': 'landing-page'}, name="home"),
     path('link-tree/', ButterPageView.as_view(template_name="links_page.html"),
         {'page_type':'links_page', 'page_slug': 'link-tree'}, name="link_tree"),
-    path('about/', ContactFormView.as_view(template_name="about.html"),
-        {'page_slug': 'about'}, name="about"),
-    path('about/success/', ButterPageView.as_view(template_name="success.html"),
-        {'page_slug': 'success'}, name="success"),
+    path('about/', AboutView.as_view(), name="about"),
+    path('about/success/', SuccessView.as_view(), name="success"),
     path('campaigns/<page_slug>/', CampaignFormView.as_view(template_name="campaign.html"),
         {'page_type': 'campaign_page'}, name="campaign"),
     path('books/', BooksListView.as_view(), name="books_list"), 
