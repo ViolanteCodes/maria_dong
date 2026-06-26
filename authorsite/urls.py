@@ -26,7 +26,6 @@ urlpatterns = [
     path('events/', ButterPageView.as_view(template_name="events_and_press.html"),
         {'page_slug':'events-and-press'}, name="events"),
     path('publications/', ShortsListView.as_view(), name="publications"),
-    # path('newsletter/', RedirectView.as_view(url=newsletter_url), name="newsletter"),
     path('newsletter/', ButterPageView.as_view(template_name="newsletter.html"),
         {'page_slug':'newsletter'},
         name="newsletter"),

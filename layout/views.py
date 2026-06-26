@@ -81,37 +81,7 @@ class ButterMixin:
                 'levels': '3',
             }
         page_type_data = Butter.pages.all(page_type, params)['data']
-        if page_type == 'short':
-            sorted_pieces = self.sort_pieces(pieces=page_type_data)
-            return sorted_pieces
         return page_type_data
-
-    def sort_pieces(self, pieces=[]):
-        """Sort page_type_data for shorts"""
-        essay = []
-        short_fiction = []
-        poetry = []
-        for piece in pieces:
-            for field_key, field_value in piece['fields'].items():
-                # Convert 'false' strings and empty lists to None for template
-                if field_value == 'false' or not field_value:
-                    piece['fields'][field_key] = None
-            piece_type = piece['fields']['piece_type']
-            if piece_type == 'short-fiction':
-                short_fiction.append(piece['fields'])
-            elif piece_type == 'poetry':
-                poetry.append(piece['fields'])
-            elif piece_type == 'essay':
-                essay.append(piece['fields'])
-            else:
-                print('Piece type not found')
-        self.new_shorts_dict = {
-            'short_fiction': tuple(short_fiction),
-            'poetry': tuple(poetry),
-            'essay': tuple(essay),
-        }
-        return self.new_shorts_dict
-
 
 class CampaignViewMixin(ButterMixin):
 
